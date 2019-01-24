@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="7f114bb0-e200-4004-aceb-ebacd6ecc842" name="davidebb@DAVIDEBB-DEV10 2010-01-18 17:34:51" runUser="REDMOND\davidebb" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="b2b2f6e3-bc8e-490c-9424-70eba3716a9e">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="davidebb_DAVIDEBB-DEV10 2010-01-18 17_34_51" />
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2010-01-18T17:34:51.9681157-08:00" queuing="2010-01-18T17:34:51.9837408-08:00" start="2010-01-18T17:34:52.0306161-08:00" finish="2010-01-18T17:34:52.6399950-08:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="13" executed="13" passed="13" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="TestPropertyGetAndSetPrivateString" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="093088ff-49fe-0eb4-e67d-6dcd5abce771">
+      <Execution id="b59a0414-b76f-40d6-9c69-b0303f2298cb" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPropertyGetAndSetPrivateString" />
+    </UnitTest>
+    <UnitTest name="TestMiscSystemWebCode" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="c3d8fd84-eed8-296d-d4b6-9107e7e64576">
+      <Execution id="d614b528-091a-4c7e-8c4e-1b6bf4b108f1" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMiscSystemWebCode" />
+    </UnitTest>
+    <UnitTest name="TestPropertyGetAndSetOnSubObject" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="2e5ea59c-b775-b3b8-74fa-0d7e08c599af">
+      <Execution id="b4203f26-2033-402c-bfbb-5dbe0fd3411d" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPropertyGetAndSetOnSubObject" />
+    </UnitTest>
+    <UnitTest name="TestIndexedProperty" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="83630d20-91b5-7dcf-68d8-4666bff25a0d">
+      <Execution id="95af9eb1-280e-45c7-bae7-44e69abbf46d" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestIndexedProperty" />
+    </UnitTest>
+    <UnitTest name="TestNullSubObject" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="515e85d0-0ebd-1827-1b15-886fe112e87e">
+      <Execution id="d74dd9ea-6871-48ad-9995-a7e62d4585e3" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestNullSubObject" />
+    </UnitTest>
+    <UnitTest name="TestOperatorOnStrings" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="8cc72e28-a1ed-9c16-5b96-95c58e5eb38e">
+      <Execution id="6ad7d0ac-e778-4186-bf8f-a8dbb91dafde" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestOperatorOnStrings" />
+    </UnitTest>
+    <UnitTest name="TestOperatorOnIntegers" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="501e21f3-c0d5-23f0-7c2e-900ecdcbd731">
+      <Execution id="81bcc24e-04a3-437e-852f-1be9aecc55f8" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestOperatorOnIntegers" />
+    </UnitTest>
+    <UnitTest name="TestPropertyGetAndSetPublicBool" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="4b36bde5-1634-b637-1274-9db56abb73ea">
+      <Execution id="7d64af7b-cdd1-4340-889f-5d9e47205133" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPropertyGetAndSetPublicBool" />
+    </UnitTest>
+    <UnitTest name="TestMissingProperty" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="c70b085f-3b53-80ae-a27f-3fb5b46cb87f">
+      <Execution id="7b143df8-6b9e-499d-8ad7-afb921878fcc" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMissingProperty" />
+    </UnitTest>
+    <UnitTest name="TestPropertyGetAndSetInternalInteger" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="f6cfbbed-3fd1-78f2-d5b2-89a3764926a4">
+      <Execution id="edd838ce-0e6d-4d50-be76-60158db65fac" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPropertyGetAndSetInternalInteger" />
+    </UnitTest>
+    <UnitTest name="TestMethodCalls" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="4bdc0b46-27ac-83e5-3d46-17ac595b19b8">
+      <Execution id="b36a03c2-4036-4e17-ab82-347fe26df0c6" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethodCalls" />
+    </UnitTest>
+    <UnitTest name="TestPrivateIntegerField" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="0fa61d3e-5254-5fde-8e98-21822df23ec9">
+      <Execution id="41ac3d31-3b16-4455-9824-9f664da4acad" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestPrivateIntegerField" />
+    </UnitTest>
+    <UnitTest name="TestDictionaryAccess" storage="d:\dd\personal\davidebb\privatereflectionusingdynamic\privatereflectionusingdynamictests\bin\debug\privatereflectionusingdynamictests.dll" id="031f6192-9900-c39b-99cf-002af668f41f">
+      <Execution id="950db894-8ed2-4245-b0b1-a44397efbb59" />
+      <TestMethod codeBase="D:/dd/Personal/davidebb/PrivateReflectionUsingDynamic/PrivateReflectionUsingDynamicTests/bin/Debug/PrivateReflectionUsingDynamicTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PrivateReflectionUsingDynamicTests.UnitTest, PrivateReflectionUsingDynamicTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestDictionaryAccess" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="f6cfbbed-3fd1-78f2-d5b2-89a3764926a4" executionId="edd838ce-0e6d-4d50-be76-60158db65fac" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4b36bde5-1634-b637-1274-9db56abb73ea" executionId="7d64af7b-cdd1-4340-889f-5d9e47205133" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="093088ff-49fe-0eb4-e67d-6dcd5abce771" executionId="b59a0414-b76f-40d6-9c69-b0303f2298cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0fa61d3e-5254-5fde-8e98-21822df23ec9" executionId="41ac3d31-3b16-4455-9824-9f664da4acad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="501e21f3-c0d5-23f0-7c2e-900ecdcbd731" executionId="81bcc24e-04a3-437e-852f-1be9aecc55f8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8cc72e28-a1ed-9c16-5b96-95c58e5eb38e" executionId="6ad7d0ac-e778-4186-bf8f-a8dbb91dafde" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c70b085f-3b53-80ae-a27f-3fb5b46cb87f" executionId="7b143df8-6b9e-499d-8ad7-afb921878fcc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4bdc0b46-27ac-83e5-3d46-17ac595b19b8" executionId="b36a03c2-4036-4e17-ab82-347fe26df0c6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2e5ea59c-b775-b3b8-74fa-0d7e08c599af" executionId="b4203f26-2033-402c-bfbb-5dbe0fd3411d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="515e85d0-0ebd-1827-1b15-886fe112e87e" executionId="d74dd9ea-6871-48ad-9995-a7e62d4585e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="83630d20-91b5-7dcf-68d8-4666bff25a0d" executionId="95af9eb1-280e-45c7-bae7-44e69abbf46d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="031f6192-9900-c39b-99cf-002af668f41f" executionId="950db894-8ed2-4245-b0b1-a44397efbb59" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c3d8fd84-eed8-296d-d4b6-9107e7e64576" executionId="d614b528-091a-4c7e-8c4e-1b6bf4b108f1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="edd838ce-0e6d-4d50-be76-60158db65fac" testId="f6cfbbed-3fd1-78f2-d5b2-89a3764926a4" testName="TestPropertyGetAndSetInternalInteger" computerName="DAVIDEBB-DEV10" duration="00:00:00.0461262" startTime="2010-01-18T17:34:52.0306161-08:00" endTime="2010-01-18T17:34:52.3274930-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="edd838ce-0e6d-4d50-be76-60158db65fac">
+    </UnitTestResult>
+    <UnitTestResult executionId="7d64af7b-cdd1-4340-889f-5d9e47205133" testId="4b36bde5-1634-b637-1274-9db56abb73ea" testName="TestPropertyGetAndSetPublicBool" computerName="DAVIDEBB-DEV10" duration="00:00:00.0047212" startTime="2010-01-18T17:34:52.3274930-08:00" endTime="2010-01-18T17:34:52.3431181-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7d64af7b-cdd1-4340-889f-5d9e47205133">
+    </UnitTestResult>
+    <UnitTestResult executionId="b59a0414-b76f-40d6-9c69-b0303f2298cb" testId="093088ff-49fe-0eb4-e67d-6dcd5abce771" testName="TestPropertyGetAndSetPrivateString" computerName="DAVIDEBB-DEV10" duration="00:00:00.0047494" startTime="2010-01-18T17:34:52.3431181-08:00" endTime="2010-01-18T17:34:52.3431181-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b59a0414-b76f-40d6-9c69-b0303f2298cb">
+    </UnitTestResult>
+    <UnitTestResult executionId="41ac3d31-3b16-4455-9824-9f664da4acad" testId="0fa61d3e-5254-5fde-8e98-21822df23ec9" testName="TestPrivateIntegerField" computerName="DAVIDEBB-DEV10" duration="00:00:00.0092039" startTime="2010-01-18T17:34:52.3587432-08:00" endTime="2010-01-18T17:34:52.3743683-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="41ac3d31-3b16-4455-9824-9f664da4acad">
+    </UnitTestResult>
+    <UnitTestResult executionId="81bcc24e-04a3-437e-852f-1be9aecc55f8" testId="501e21f3-c0d5-23f0-7c2e-900ecdcbd731" testName="TestOperatorOnIntegers" computerName="DAVIDEBB-DEV10" duration="00:00:00.0129468" startTime="2010-01-18T17:34:52.3899934-08:00" endTime="2010-01-18T17:34:52.4056185-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="81bcc24e-04a3-437e-852f-1be9aecc55f8">
+    </UnitTestResult>
+    <UnitTestResult executionId="6ad7d0ac-e778-4186-bf8f-a8dbb91dafde" testId="8cc72e28-a1ed-9c16-5b96-95c58e5eb38e" testName="TestOperatorOnStrings" computerName="DAVIDEBB-DEV10" duration="00:00:00.0136263" startTime="2010-01-18T17:34:52.4212436-08:00" endTime="2010-01-18T17:34:52.4368687-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6ad7d0ac-e778-4186-bf8f-a8dbb91dafde">
+    </UnitTestResult>
+    <UnitTestResult executionId="7b143df8-6b9e-499d-8ad7-afb921878fcc" testId="c70b085f-3b53-80ae-a27f-3fb5b46cb87f" testName="TestMissingProperty" computerName="DAVIDEBB-DEV10" duration="00:00:00.0051126" startTime="2010-01-18T17:34:52.4368687-08:00" endTime="2010-01-18T17:34:52.4524938-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7b143df8-6b9e-499d-8ad7-afb921878fcc">
+    </UnitTestResult>
+    <UnitTestResult executionId="b36a03c2-4036-4e17-ab82-347fe26df0c6" testId="4bdc0b46-27ac-83e5-3d46-17ac595b19b8" testName="TestMethodCalls" computerName="DAVIDEBB-DEV10" duration="00:00:00.0143797" startTime="2010-01-18T17:34:52.4524938-08:00" endTime="2010-01-18T17:34:52.4837440-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b36a03c2-4036-4e17-ab82-347fe26df0c6">
+    </UnitTestResult>
+    <UnitTestResult executionId="b4203f26-2033-402c-bfbb-5dbe0fd3411d" testId="2e5ea59c-b775-b3b8-74fa-0d7e08c599af" testName="TestPropertyGetAndSetOnSubObject" computerName="DAVIDEBB-DEV10" duration="00:00:00.0080756" startTime="2010-01-18T17:34:52.4837440-08:00" endTime="2010-01-18T17:34:52.4993691-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b4203f26-2033-402c-bfbb-5dbe0fd3411d">
+    </UnitTestResult>
+    <UnitTestResult executionId="d74dd9ea-6871-48ad-9995-a7e62d4585e3" testId="515e85d0-0ebd-1827-1b15-886fe112e87e" testName="TestNullSubObject" computerName="DAVIDEBB-DEV10" duration="00:00:00.0030428" startTime="2010-01-18T17:34:52.4993691-08:00" endTime="2010-01-18T17:34:52.5149942-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d74dd9ea-6871-48ad-9995-a7e62d4585e3">
+    </UnitTestResult>
+    <UnitTestResult executionId="95af9eb1-280e-45c7-bae7-44e69abbf46d" testId="83630d20-91b5-7dcf-68d8-4666bff25a0d" testName="TestIndexedProperty" computerName="DAVIDEBB-DEV10" duration="00:00:00.0101233" startTime="2010-01-18T17:34:52.5149942-08:00" endTime="2010-01-18T17:34:52.5306193-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="95af9eb1-280e-45c7-bae7-44e69abbf46d">
+    </UnitTestResult>
+    <UnitTestResult executionId="950db894-8ed2-4245-b0b1-a44397efbb59" testId="031f6192-9900-c39b-99cf-002af668f41f" testName="TestDictionaryAccess" computerName="DAVIDEBB-DEV10" duration="00:00:00.0153558" startTime="2010-01-18T17:34:52.5306193-08:00" endTime="2010-01-18T17:34:52.5462444-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="950db894-8ed2-4245-b0b1-a44397efbb59">
+    </UnitTestResult>
+    <UnitTestResult executionId="d614b528-091a-4c7e-8c4e-1b6bf4b108f1" testId="c3d8fd84-eed8-296d-d4b6-9107e7e64576" testName="TestMiscSystemWebCode" computerName="DAVIDEBB-DEV10" duration="00:00:00.0578215" startTime="2010-01-18T17:34:52.5462444-08:00" endTime="2010-01-18T17:34:52.6243699-08:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d614b528-091a-4c7e-8c4e-1b6bf4b108f1">
+    </UnitTestResult>
+  </Results>
+</TestRun>

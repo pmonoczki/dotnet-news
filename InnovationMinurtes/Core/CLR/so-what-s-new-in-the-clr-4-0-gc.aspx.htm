@@ -1,0 +1,1264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+
+ 
+
+    <meta name="robots" content="index,follow">
+<meta name="keywords" content="Performance, General">
+<meta name="GENERATOR" content="Telligent Community 1.5.134.12674 (Build: 5.5.134.12674)">
+<link rel="pingback" href="http://blogs.msdn.com/b/maoni/pingback.aspx">
+<link rel="alternate" type="application/rss+xml" title="Site Home (RSS 2.0)" href="http://blogs.msdn.com/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="maoni's Comments (RSS 2.0)" href="http://blogs.msdn.com/members/maoni/comments/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="maoni's Activities (RSS 2.0)" href="http://blogs.msdn.com/members/maoni/activities/rss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Activities of People maoni Follows (RSS 2.0)" href="http://blogs.msdn.com/members/maoni/activities/followersrss.aspx">
+<link rel="alternate" type="application/rss+xml" title="maoni's Groups Activities (RSS 2.0)" href="http://blogs.msdn.com/members/maoni/activities/groupsrss.aspx">
+<link rel="alternate" type="application/rss+xml" title="Maoni's WebLog (RSS 2.0)" href="http://blogs.msdn.com/b/maoni/rss.aspx">
+<link rel="alternate" type="application/atom+xml" title="Maoni's WebLog (Atom 1.0)" href="http://blogs.msdn.com/b/maoni/atom.aspx">
+<link rel="alternate" type="application/rss+xml" title="Maoni's WebLog - All Comments (RSS 2.0)" href="http://blogs.msdn.com/b/maoni/rsscomments.aspx">
+<link rel="alternate" type="application/rss+xml" title="So, what’s new in the CLR 4.0 GC? - Comments for this post (RSS 2.0)" href="http://blogs.msdn.com/b/maoni/rsscomments.aspx?WeblogPostID=9126846">
+
+            <link rel="stylesheet" href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/layout.css" type="text/css" media="screen">
+        
+         
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <link rel="shortcut icon" type="image/ico" href="http://blogs.msdn.com/themes/MSDN/favicon.ico">
+          <link type="text/css" rel="stylesheet" href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/screen.css" media="screen,print">
+          <link type="text/css" rel="stylesheet" href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/MSDNblogs.css" media="screen,print">
+        
+          <link type="text/css" rel="stylesheet" href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/DynamicStyle.css" media="screen,print">
+          <link type="text/css" rel="stylesheet" href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/DynamicStyle_002.txt" media="screen,print">
+          <link type="text/css" rel="stylesheet" href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/DynamicStyle.txt" media="screen,print">
+        
+          <!--[if lte IE 6]>
+              <link type="text/css" rel="stylesheet" href="/themes/MSDN/css/ie6.css" media="screen,print" />
+          <![endif]-->
+          <link type="text/css" rel="stylesheet" href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/print.css" media="print">
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://blogs.msdn.com/b/maoni/rsd.ashx">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" title="WLWManifest" href="http://blogs.msdn.com/b/maoni/wlwmanifest.ashx">
+<title>
+	So, what’s new in the CLR 4.0 GC? - Maoni's WebLog - Site Home - MSDN Blogs
+</title></head><body spellcheck="true">
+		<form name="aspnetForm" method="post" action="/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm">
+<div>
+<input name="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer" id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer" value="8" type="hidden">
+<input name="__EVENTTARGET" id="__EVENTTARGET" value="" type="hidden">
+<input name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" type="hidden">
+<input name="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_encrypted" id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_encrypted" value="ZV7ZC3+Ch9QrOH30tNrhSf5NRspA0DtTGVXQ6TlR8kA=" type="hidden">
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTM5OTAxNDYyNWRkvI787cXLvh9XHlDReEjVejxzcZ4=" type="hidden">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_002.js" type="text/javascript"></script>
+
+
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource.axd" type="text/javascript"></script><script type="text/javascript" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/jquery-1.js"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_003.axd" type="text/javascript"></script><script type="text/javascript" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/autoresize.js"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_012.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_005.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_004.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_009.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_006.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource.js" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_011.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_007.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_010.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_008.axd" type="text/javascript"></script>
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/WebResource_002.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+			
+            
+                
+            
+            <div class="header-fragments-header"></div>
+<div class="header-fragments"><div class="header-fragment-outer top-bar fiji-header-fragment-outer fiji-top-bar"><div class="header-fragment-inner top-bar fiji-header-fragment-inner fiji-top-bar"><div class="header-fragment welcome-message" id="fragment-c3317e05-4037-4db9-b4d1-10c11eaa4be4">
+
+
+<!-- always render -->
+</div><div class="header-fragment login-logout" id="fragment-113837b1-27a2-46a7-a490-03668da592b5">
+
+
+
+
+
+        <div class="navigation-list-header"></div>
+        <ul class="navigation-list">
+
+            <li class="navigation-item">
+                <span id="ctl00_fragment_113837b1_27a2_46a7_a490_03668da592b5_ctl01_ctl02_ctl05_WLIDLoginButton1" class="internal-link live-id-button"><a href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=11&amp;ct=1289111273&amp;rver=6.0.5286.0&amp;wp=MBI&amp;wreply=http:%2F%2Fblogs.msdn.com%2Fb%2Fmaoni%2Farchive%2F2008%2F11%2F19%2Fso-what-s-new-in-the-clr-4-0-gc.aspx&amp;lc=1033&amp;id=271611">Sign in</a></span>
+            </li>
+        </ul>
+        <div class="navigation-list-footer"></div>
+    </div><div class="header-fragment user-welcome-without-login" id="fragment-f2d1d8a2-2a83-48ad-81d9-01a86c1d12eb">
+
+ &nbsp;<!-- always render -->
+
+</div></div></div><div class="header-fragment blog-banner" id="fragment-489c1d11-3bfb-4eea-9245-ddbe1774b0ea">
+
+
+
+<div class="site-banner blog-banner">
+
+<h1 class="blog-banner-name"><a href="http://blogs.msdn.com/b/maoni/">Maoni's WebLog</a></h1>
+<div class="blog-banner-description">CLR Garbage Collector</div>
+</div>
+
+</div></div>
+<div class="header-fragments-footer"></div>
+			
+    <div class="content-fragment-page post" id="ctl00_content_ctl00_page"><div class="layout">
+<div class="layout-header"></div>
+<div class="layout-content content-left-sidebar-right" id="ctl00_content_ctl00_layout">
+<div class="layout-region right-sidebar" id="ctl00_content_ctl00_right-sidebar">
+<div class="layout-region-inner right-sidebar"><div class="content-fragment blog-links no-wrapper-with-spacing with-header" id="fragment-32163">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-header"><div>Options</div></div>
+<div class="content-fragment-content">
+
+		<div class="navigation-list-header"></div>
+		<ul class="navigation-list">
+	<li class="navigation-item"><a class="internal-link view-application" href="http://blogs.msdn.com/b/maoni/"><span></span>Blog Home</a></li><li class="navigation-item"><a class="internal-link email-post" href="mailto:?subject=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?&amp;body=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx">
+		<span></span>Send to friend
+	</a></li><li class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/maoni/rss.aspx"><span></span>RSS for Posts</a></li><li class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/maoni/atom.aspx"><span></span>Atom</a></li><li id="" rsscomments="" class="navigation-item"><a class="internal-link rss" href="http://blogs.msdn.com/b/maoni/rsscomments.aspx"><span></span>RSS for Comments</a></li>
+		</ul>
+		<div class="navigation-list-footer"></div>
+	</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment search-form no-wrapper-with-spacing with-header" id="fragment-32164">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-header"><div>Search Blogs</div></div>
+<div class="content-fragment-content">
+
+
+
+        <div class="field-list-header"></div>
+        <fieldset class="field-list">
+            <ul class="field-list">
+                <li class="field-item search">
+                    <div>
+                         <span class="field-item-input"><input name="ctl00$content$ctl00$fragment_32164$ctl01$ctl01$ctl01$Keywords" maxlength="64" size="45" id="ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Keywords" onfocus="if(this.defaultValue==this.value) this.value='';" onblur="if(this.value=='') this.value=this.defaultValue;" type="text"></span>
+                    </div>
+                    <span id="ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Validator" style="color: Red; display: none;"><span class="field-item-validation">*</span></span>
+
+
+                    <a href="#" onclick="ToggleAdvancedSearch(ctl00_content_ctl00_fragment_32164, this)" id="ctl00_content_ctl00_fragment_32164_AdvancedOptions" class="internal-link advanced-search"><span></span>Advanced search options...</a>
+                </li>
+                <li class="field-item search-type">
+                    <label for="ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_ContentTypes" class="field-item-header">Search In:</label>
+                    <span class="field-item-input">
+                        <select name="ctl00$content$ctl00$fragment_32164$ctl01$ctl01$ctl01$ContentTypes" id="ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_ContentTypes">
+	<option selected="selected" value="">Everything</option>
+	<option value="blog">Blogs</option>
+	<option value="forum">Forums</option>
+	<option value="user">People</option>
+	<option value="group">Groups</option>
+	<option value="fileapp,forumapp,blogapp,wikiapp">Places</option>
+	<option value="page">Pages</option>
+
+</select>
+                    </span>
+                </li>
+                <li class="field-item date-range">
+                    <label for="ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_DatingBackTo" class="field-item-header">Date range:</label>
+                    <span class="field-item-input"><select name="ctl00$content$ctl00$fragment_32164$ctl01$ctl01$ctl01$DatingBackTo" id="ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_DatingBackTo">
+	<option selected="selected" value="-1">All Time</option>
+	<option value="-365">Last Year</option>
+	<option value="-185">Last 6 Months</option>
+	<option value="-95">Last 3 Months</option>
+	<option value="-35">Last Month</option>
+	<option value="-7">Last Week</option>
+	<option value="-2">Last Two Days</option>
+
+</select></span>
+                </li>
+                
+                <li class="field-item searchbutton">
+                    <span class="field-item-input"><a id="ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_SearchButton" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("ctl00$content$ctl00$fragment_32164$ctl01$ctl01$ctl01$SearchButton",%20"",%20true,%20"",%20"",%20false,%20true))'>Search</a></span>
+                </li>
+            </ul>
+        </fieldset>
+        <div class="field-list-footer">
+            <span style="display: inline-block;"><input name="SearchTypeRadio" value="ThisBlog" id="ThisBlog" checked="checked" type="radio"><label for="ThisBlog" id="ThisBlogText">Search this blog</label></span>
+            <span style="display: inline-block;"><input name="SearchTypeRadio" value="AllBlogs" id="AllBlogs" type="radio"><label for="AllBlogs" id="AllBlogsText">Search all blogs</label></span>
+        </div>
+
+    
+
+
+<script type="text/javascript">
+
+// Hide the radio buttons and text if we aren't on a blog
+$(document).ready(function() {
+            
+    // try to get the blog id, if we fail, then we aren't on a blog and just use the regular search approach       
+    var sectionID = 3681;
+
+    if (sectionID == -1)
+    {
+        var tbObj = document.getElementById("ThisBlog");
+        var tbObjText = document.getElementById("ThisBlogText");
+        var abObj = document.getElementById("AllBlogs");
+        var abObjText = document.getElementById("AllBlogsText");
+        
+        if (tbObj != 'undefined' && abObj != 'undefined' && abObjText != 'undefined' && tbObjText != 'undefined')
+        {
+            tbObj.style.display = 'none';
+            tbObjText.style.display = 'none';
+            abObj.style.display = 'none';
+            abObjText.style.display = 'none';
+        }
+    }
+}
+);
+
+// Setup on keypress event for the search box     
+var ctl00_content_ctl00_fragment_32164={"wrapperId":"fragment-32164","variableName":"ctl00_content_ctl00_fragment_32164","parameter":{"keywords":"ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Keywords","search":"ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_SearchButton"}};
+    
+    $("#" + ctl00_content_ctl00_fragment_32164.parameter.keywords).bind("keypress", function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            var tb = $(event.target);
+            tb.blur();   
+            
+            // try to get the blog id, if we fail, then we aren't on a blog and just use the regular search approach       
+            var sectionID = 3681;
+            if (sectionID != -1 && document.getElementById("ThisBlog").checked==true)
+            {
+                window.location = "/search/SearchResults.aspx?q=" + encodeURIComponent($("#" + ctl00_content_ctl00_fragment_32164.parameter.keywords).attr("value")) + "&sections=" + sectionID;
+            }
+            else
+            {
+                window.location = $("#" + ctl00_content_ctl00_fragment_32164.parameter.search).attr("href");
+            }
+        }
+    });
+    
+    function ToggleAdvancedSearch(context, e)
+    {
+        var wrapper = $("#" + context.wrapperId);
+        var advancedSearchLink = $("#" + context.variableName + "_AdvancedOptions", wrapper);
+        if (advancedSearchLink.text() == 'Advanced search options...')
+        {
+            advancedSearchLink.text('Hide advanced options...');
+            $("ul.field-list", wrapper).addClass('advanced-search advanced-search__field-list');
+        }
+        else
+        {
+            advancedSearchLink.text('Advanced search options...');
+            $("ul.field-list", wrapper).removeClass('advanced-search advanced-search__field-list');
+        }
+    }
+</script></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment tag-cloud no-wrapper-with-spacing with-header" id="fragment-32165">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-header"><div>Tags</div></div>
+<div class="content-fragment-content">
+<div class="tag-list-header"></div><ul class="tag-list">
+<li class="tag-item level-6"><a href="http://blogs.msdn.com/b/maoni/archive/tags/Debugging/" rel="tag">Debugging</a></li>
+<li class="tag-item level-4"><a href="http://blogs.msdn.com/b/maoni/archive/tags/General/" rel="tag">General</a></li>
+<li class="tag-item level-1"><a href="http://blogs.msdn.com/b/maoni/archive/tags/Performance/" rel="tag">Performance</a></li>
+</ul>
+<div class="tag-list-footer"></div>
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment blog-archive-list no-wrapper-with-spacing with-header" id="fragment-32166">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-header"><div>Archive</div></div>
+<div class="content-fragment-content">
+
+		<div class="content-list-header"></div>
+		<div class="content-list-name">Archives</div>
+		<ul class="content-list">
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2010/04.aspx">April 2010</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2009/05.aspx">May 2009</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2008/11.aspx">November 2008</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2007/05.aspx">May 2007</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2007/03.aspx">March 2007</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2007/01.aspx">January 2007</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/12.aspx">December 2006</a> (3)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/11.aspx">November 2006</a> (4)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/10.aspx">October 2006</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/09.aspx">September 2006</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/08.aspx">August 2006</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/06.aspx">June 2006</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/04.aspx">April 2006</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/02.aspx">February 2006</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2006/01.aspx">January 2006</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2005/10.aspx">October 2005</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2005/07.aspx">July 2005</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2005/05.aspx">May 2005</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2004/12.aspx">December 2004</a> (1)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2004/11.aspx">November 2004</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2004/09.aspx">September 2004</a> (2)</li>
+	
+		<li class="content-item"><a class="internal-link view-post-archive-list" href="http://blogs.msdn.com/b/maoni/archive/2004/06.aspx">June 2004</a> (3)</li>
+	
+		</ul>
+		<div class="content-list-footer"></div>
+	
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+</div>
+</div>
+<div class="layout-region content" id="ctl00_content_ctl00_content">
+<div class="layout-region-inner content"><div class="content-fragment blog-title full-border" id="fragment-32167">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-content">
+<h1 class="title">
+	    
+			        
+			    
+	                So, what’s new in the CLR 4.0 GC?
+			    
+	</h1></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment blog-bread-crumbs no-wrapper" id="fragment-32168">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-content">
+
+
+<div class="breadcrumb-list-header"></div>
+<div class="breadcrumb-list">
+	<span class="breadcrumb-item"><a class="internal-link view-home" href="http://blogs.msdn.com/">MSDN Blogs</a></span>
+  
+	
+
+	
+			<span class="separator"> &gt; </span>
+			<span class="breadcrumb-item">
+		<a href="http://blogs.msdn.com/b/maoni/">Maoni's WebLog</a>
+			</span>
+		
+	
+	
+			<span class="separator"> &gt; </span>
+			<span class="breadcrumb-item">
+		<a class="last" href="http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx">So, what’s new in the CLR 4.0 GC?</a>
+			</span>
+		
+
+	
+</div>
+<div class="breadcrumb-list-footer"></div>
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment blog-post no-wrapper" id="fragment-32169">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-content">
+
+
+<div class="full-post-header"></div>
+<div class="full-post">
+	<h3 class="post-name">So, what’s new in the CLR 4.0 GC?</h3>
+	
+	        <div class="post-rating">
+	            Rate This<br>
+	    <span class="rating readonly" id="ctl00_content_ctl00_fragment_32169_ctl01_ctl01" title="Rated Excellent [5 out of 5]."><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-left-on.png" style="border-width: 0px;" align="absmiddle" border="0"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/star-right-on.png" style="border-width: 0px;" align="absmiddle" border="0"></span><input value="5" id="ctl00_content_ctl00_fragment_32169_ctl01_ctl01_Value" type="hidden">
+	        </div>
+	    
+    <div class="post-author">
+        <span class="avatar"><a href="http://blogs.msdn.com/members/maoni/"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+        
+        <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/maoni/"><span></span>maoni</a></span>
+        
+    </div>
+    <div class="post-date">
+        <span class="value">
+            19 Nov 2008 8:02 PM
+        </span>
+    </div>
+    <div class="post-attributes">
+        <div class="attribute-list-header"></div>
+        <ul class="attribute-list">
+             <li class="attribute-item post-reply-count">
+                <span class="attribute-name">Comments</span>
+                <span class="attribute-value"><a href="#comments" class="internal-link view-replies"><span></span>22</a></span>
+             </li>
+        </ul>
+        <div class="attribute-list-footer"></div>
+    </div>
+    <div class="post-content user-defined-markup"><p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">PDC
+ 2008 happened not long ago so I get to write another “what’s new in GC”
+ blog entry. For quite a while now I’ve been working on a new concurrent
+ GC that replaces the existing one. And this new concurrent GC is called
+ “background GC”. </font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">First
+ of all let me apologize for having not written anything for so long. 
+It’s been quite busy working on the new GC and other things. </font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">Let me refresh your memory on <i style="">concurrent GC</i>.
+ Concurrent GC has existed since CLR V1.0. For a blocking GC, ie, a non 
+concurrent GC we always suspend managed threads, do the GC work then 
+resume managed threads. Concurrent GC, on the other hand, runs 
+concurrently with the managed threads to the following extend:</font></p>
+<p class="MsoListParagraphCxSpFirst" style="margin: 0in 0in 0pt 0.25in; text-indent: -0.25in;"><span style="font-family: Wingdings;"><span style=""><font size="3">§</font><span style="font: 7pt 'Times New Roman';">&nbsp; </span></span></span><font face="Calibri" size="3">It allows you to allocate while a concurrent GC is in progress.</font></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.25in;"><o:p><font face="Calibri" size="3">&nbsp;</font></o:p></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.25in;"><font face="Calibri" size="3">However
+ you can only allocate so much – for small objects you can allocate at 
+most up to end of the ephemeral segment. Remember if we don’t do an 
+ephemeral GC, the total space occupied by ephemeral generations can be 
+as big as a full segment allows so as soon as you reached the end of the
+ segment you will need to wait for the concurrent GC to finish so 
+managed threads that need to make small object allocations are 
+suspended. </font></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.25in;"><o:p><font face="Calibri" size="3">&nbsp;</font></o:p></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.25in; text-indent: -0.25in;"><span style="font-family: Wingdings;"><span style=""><font size="3">§</font><span style="font: 7pt 'Times New Roman';">&nbsp; </span></span></span><font face="Calibri" size="3">It still needs to stop managed threads a couple of times during a concurrent GC.</font></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.25in;"><o:p><font face="Calibri" size="3">&nbsp;</font></o:p></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.25in;"><font face="Calibri" size="3">During
+ a concurrent GC we need to suspend managed threads twice to do some 
+phases of the GC. These phases could possibly take a while to finish.</font></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt 0.25in;"><o:p><font face="Calibri" size="3">&nbsp;</font></o:p></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt;"><font face="Calibri" size="3">We
+ only do concurrent GCs for full GCs. A full GC can be either a 
+concurrent GC or a blocking GC. Ephemeral GCs (ie, gen0 or gen1 GCs) are
+ always blocking. </font></p>
+<p class="MsoListParagraphCxSpMiddle" style="margin: 0in 0in 0pt;"><o:p><font face="Calibri" size="3">&nbsp;</font></o:p></p>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">Concurrent GC is only available for workstation GC. In server GC we always do blocking GCs for any GCs.</font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">Concurrent
+ GC is done on a dedicated GC thread. This thread times out if no 
+concurrent GC has happened for a while and gets recreated next time we 
+need to do concurrent GC.</font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">When
+ the program activity (including making allocations and modifying 
+references) is not really high and the heap is not very large concurrent
+ GC works well – the latency caused by the GC is reasonable. But as 
+people start writing larger applications with larger heaps that handle 
+more stressful situations, the latency can be unacceptable. </font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font size="3"><font face="Calibri"><i style="">Background GC</i>
+ is an evolution to concurrent GC. The significance of background GC is 
+we can do ephemeral GCs while a background GC is in progress if needed. 
+As with concurrent GC, background GC is also only applicable to full GCs
+ and ephemeral GCs are always done as blocking GCs, and a background GC 
+is also done on its dediated GC thread. The ephemeral GCs done while a 
+background GC is in progress are called foreground GCs.</font></font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">So
+ when a background GC is in progress and you’ve allocated enough in 
+gen0, we will trigger a gen0 GC (which may stay as a gen0 GC or get 
+elevated as a gen1 GC depending on GC’s internal tuning). The background
+ GC thread will check at frequent safe points (ie, when we can allow a 
+foreground GC to happen) and see if there’s a request for a foreground 
+GC. If so it will suspend itself and a foreground GC can happen. After 
+this foreground GC is finished, the background GC thread and the user 
+threads can resume their work.</font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">Not
+ only does this allow us to get rid of dead objects in young 
+generations, it also lifts the restriction of having to stay in the 
+ephemeral segment – if we need to expand the heap while a background GC 
+is going on, we can do so in a gen1 GC.</font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">We
+ also made some performance improvement in background GC which does 
+better at doing more things concurrently so the time we need to suspend 
+managed threads is also shorter. </font></p>
+<p class="MsoNormal" style="margin: 0in 0in 10pt;"><font face="Calibri" size="3">We
+ are not offering background GC for server GC in V4.0. It’s under 
+consideration – we recognize how important it is for server applications
+ (which usually have much larger heaps than client apps) to benefit from
+ smaller latency but the work did not fit in our V4.0 timeframe. For now
+ for server applications, I would recommend you to look at the full GC 
+notification feature we added in .NET 3.5 SP1. It’s explained here: </font><a href="http://msdn.microsoft.com/en-us/library/cc713687.aspx"><font face="Calibri" size="3">http://msdn.microsoft.com/en-us/library/cc713687.aspx</font></a><font face="Calibri" size="3">.
+ Basically you register to get notified when a full GC is approaching 
+and when it’s finished. This allows you to do software load balancing 
+between different server instances – when a full GC is about to happen 
+in one of the server instances, you can redirect new requests to other 
+instances. </font></p><div style="clear: both;"></div></div>
+    <div class="post-attachment-viewer">
+		
+    </div>
+    <div class="post-actions">
+        <div class="navigation-list-header"></div>
+        <ul class="navigation-list">
+            
+            <li class="navigation-item"><a class="internal-link view-replies" href="http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx#comments"><span></span>22 Comments</a></li>
+            
+            
+        </ul>
+        <div class="navigation-list-footer"></div>
+    </div>
+    <div class="post-tags"><span id="ctl00_content_ctl00_fragment_32169_ctl01_ctl15_ctl02"><a href="http://blogs.msdn.com/b/maoni/archive/tags/Performance/" rel="tag">Performance</a>, <a href="http://blogs.msdn.com/b/maoni/archive/tags/General/" rel="tag">General</a></span><input name="ctl00$content$ctl00$fragment_32169$ctl01$ctl15$ctl02" id="ctl00_content_ctl00_fragment_32169_ctl01_ctl15_ctl02_State" value="value:%3Ca%20href%3D%22http%3A%2F%2Fblogs.msdn.com%2Fb%2Fmaoni%2Farchive%2Ftags%2FPerformance%2F%22%20rel%3D%22tag%22%3EPerformance%3C%2Fa%3E%2C%20%3Ca%20href%3D%22http%3A%2F%2Fblogs.msdn.com%2Fb%2Fmaoni%2Farchive%2Ftags%2FGeneral%2F%22%20rel%3D%22tag%22%3EGeneral%3C%2Fa%3E" type="hidden"></div>
+</div>
+<div class="full-post-footer"></div></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment social-media-sharing no-wrapper" id="fragment-32170">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-content">
+
+<link href="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/sharethis.css" rel="stylesheet" type="text/css"> 
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/ShareThis.js" type="text/javascript"></script>
+<div class="ShareThisMainPanel">
+	<div id="ctl00_content_ctl00_fragment_32170_ctl01_65ac45c6_2db7_4fdf_8897_63f076f797c4" class="ShareThis_ChildRootPanel" onmouseover="ShareThisChildRootPanelOnmouseOver(this.id);" onmouseout="ShareThisChildRootPanelOnmouseOut(this.id);">
+		<div id="ctl00_content_ctl00_fragment_32170_ctl01_ShareThisBtnCollPanel_c6861a6a2f7e4d9eb88876d06dc2ee8c" class="tierOnePanel">
+			<div class="buttonPanel">
+				<a title="Share on Facebook" class="iconsOnPanel" href="http://www.facebook.com/sharer.php?u=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;t=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Facebook" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/facebook.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on Twitter" class="iconsOnPanel" href="http://twitter.com/home?status=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs%20:%20http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx" target="_blank"><img title="Share on Twitter" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/twitter.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on Digg" class="iconsOnPanel" href="http://digg.com/submit?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Digg" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/digg.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on del.icio.us" class="iconsOnPanel" href="http://del.icio.us/post?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on del.icio.us" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/delicious.gif" style="border-width: 0px;"></a>
+			</div><div class="buttonPanel">
+				<a title="Share on LinkedIn" class="iconsOnPanel" href="http://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;summary=&amp;source=Microsoft&amp;armin=armin" target="_blank"><img title="Share on LinkedIn" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/linkedin.gif" style="border-width: 0px;"></a>
+			</div>
+		</div><div id="ctl00_content_ctl00_fragment_32170_ctl01_ShareThisBtnCollPanel_ff9359602177416196a5f06c953b93e7" class="tierTwoPanel" onclick="TierTwoPanelOnclick(this.id);" onmouseover="TierTwoPanelOnmouseOver(this.id);" onmouseout="TierTwoPanelOnmouseOut(this.id);">
+			<div id="ctl00_content_ctl00_fragment_32170_ctl01_ShareThisBtnCollPanel_443264c1dca849e6bc6dbef7a30d9f34" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Reddit" class="iconsOnPanel" href="http://www.reddit.com/submit?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Reddit" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/reddit.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Slashdot" class="iconsOnPanel" href="http://slashdot.org/bookmark.pl?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Slashdot" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/slashdot.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on MySpace" class="iconsOnPanel" href="http://www.myspace.com/Modules/PostTo/Pages/?u=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;t=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on MySpace" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/myspace.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Windows Live Spaces" class="iconsOnPanel" href="http://spaces.live.com/BlogIt.aspx?Title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;SourceURL=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx" target="_blank"><img title="Share on Windows Live Spaces" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/livefavorites.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Blogmarks" class="iconsOnPanel" href="http://blogmarks.net/my/new.php?mini=1&amp;simple=1&amp;url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;content=" target="_blank"><img title="Share on Blogmarks" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/blogmarks.gif" style="border-width: 0px;"></a>
+				</div>
+			</div><div id="ctl00_content_ctl00_fragment_32170_ctl01_ShareThisBtnCollPanel_52ec9cf17b584c92b7564a60001d1778" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Diigo" class="iconsOnPanel" href="http://www.diigo.com/post?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;desc=" target="_blank"><img title="Share on Diigo" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/diigo.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Fark" class="iconsOnPanel" href="http://www.fark.com/cgi/farkit.pl?u=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;h=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Fark" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/fark.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Faves" class="iconsOnPanel" href="http://faves.com/Authoring.aspx?u=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;t=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Faves" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/faves.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Technorati" class="iconsOnPanel" href="http://technorati.com/faves/?add=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx" target="_blank"><img title="Share on Technorati" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/technorati.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on FriendFeed" class="iconsOnPanel" href="http://friendfeed.com/?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on FriendFeed" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/friendfeed.gif" style="border-width: 0px;"></a>
+				</div>
+			</div><div id="ctl00_content_ctl00_fragment_32170_ctl01_ShareThisBtnCollPanel_476b5f1b82504962a3be040a783d2ece" class="tierTwoRowPanel">
+				<div class="buttonPanel">
+					<a title="Share on Windows Live Favorites" class="iconsOnPanel" href="http://favorites.live.com/quickadd.aspx?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Windows Live Favorites" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/livefavorites.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Mixx" class="iconsOnPanel" href="http://www.mixx.com/submit?page_url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx" target="_blank"><img title="Share on Mixx" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/mixx.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Newsvine" class="iconsOnPanel" href="http://www.newsvine.com/_tools/seed&amp;save?u=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;h=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs&amp;s=" target="_blank"><img title="Share on Newsvine" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/newsvine.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on StumbleUpon" class="iconsOnPanel" href="http://www.stumbleupon.com/submit?url=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on StumbleUpon" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/stumbleupon.gif" style="border-width: 0px;"></a>
+				</div><div class="buttonPanel">
+					<a title="Share on Google" class="iconsOnPanel" href="http://www.google.com/bookmarks/mark?op=add&amp;bkmk=http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx&amp;title=So,%20what%E2%80%99s%20new%20in%20the%20CLR%204.0%20GC?%20-%20Maoni%27s%20WebLog%20-%20Site%20Home%20-%20MSDN%20Blogs" target="_blank"><img title="Share on Google" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/google.gif" style="border-width: 0px;"></a>
+				</div>
+			</div>
+		</div>
+	</div><div id="ctl00_content_ctl00_fragment_32170_ctl01_ShowMoreLessButtonsPanel_c2698980_a925_4965_b307_19521f203854" class="ShowMoreLessButtonsPanel" onclick="ShowMoreLessButtonsPanelOnClick(this.id);" onmouseover="ShowMoreLessButtonsPanelOnmouseOver(this.id);" onmouseout="ShowMoreLessButtonsPanelOnmouseOut(this.id);">
+		<a class="buttonMoreLess" id="btn_more"><img title="More" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/more.gif" style="border-width: 0px;"></a><a class="buttonMoreLess" id="btn_less"><img title="Less" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/less.gif" style="border-width: 0px;"></a>
+	</div>
+</div><div class="ShareClearFloatsPanel">
+
+</div></div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment blog-feedback-list no-wrapper" id="fragment-32171">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-content">
+
+
+
+
+<script type="text/javascript">
+	// <![CDATA[
+	$(document).ready(function() {
+	$(document).bind('telligent_blogs_commentposted', function(e, message) { 
+	            window.setTimeout(new Function(ctl00_content_ctl00_fragment_32171_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList.Reload()), 100); 
+	            return true; 
+	    });
+	    ctl00_content_ctl00_fragment_32171_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList.Reload();
+	});
+// ]]>
+</script>
+
+	
+
+
+	    <div style="cursor: default;" id="ctl00_content_ctl00_fragment_32171_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList"><input name="ctl00$content$ctl00$fragment_32171$ctl01$ctl00$ctl02$ctl05$DelayedFeedbackList" value="true:undefined" type="hidden">
+		    
+				    <a name="comments"></a>
+				    <div class="content-list-header"></div>
+				    <div class="content-list-name">
+					    
+							    <a class="internal-link rss" href="http://blogs.msdn.com/b/maoni/rsscomments.aspx"><span></span>Comments</a>
+						    
+				    </div>
+				    <ul class="content-list">
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="TrackBack" rel="nofollow" href="http://mstechnews.info/2008/11/so-what%e2%80%99s-new-in-the-clr-40-gc/">So, what???s new in the CLR 4.0 GC? | MS Tech News</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">19 Nov 2008 8:34 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>PingBack from <a rel="nofollow" target="_new" href="http://mstechnews.info/2008/11/so-what%e2%80%99s-new-in-the-clr-40-gc/">http://mstechnews.info/2008/11/so-what%e2%80%99s-new-in-the-clr-40-gc/</a></p>
+</div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="TrackBack" rel="nofollow" href="http://weblogs.asp.net/yuanjian/archive/2008/11/24/interesting-finds-2008-11-21-2008-11-25.aspx">gOODiDEA.NET</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">24 Nov 2008 8:18 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>.NET Redirecting without the exceptions So, what&amp;#8217;s new in the CLR 4.0 GC? Source Control for Visual</p>
+</div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="TrackBack" rel="nofollow" href="http://www.cnblogs.com/gOODiDEA/archive/2008/11/25/1340371.html">gOODiDEA</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">24 Nov 2008 8:19 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>.NETRedirectingwithouttheexceptionsSo,what’snewintheCLR4.0GC?SourceControlforVisu...</p>
+</div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">wasthebest</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">26 Nov 2008 1:09 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>This question 
+regards what might be a bug in .NET Framework 1.1, but I think it 
+applies here as it regards a multi-threaded app and the GC. After 
+changing the system time (to speed up events,) some of my weak 
+references are lost, although the original object is still alive. Why 
+would this happen? Can changing the system time corrupt the GC?</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">wasthebest</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">27 Nov 2008 2:49 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Egg on face. My
+ problem is clearly an application bug as I tracked down an 
+inconsistency in what Target was being assigned. Sorry, I have a policy 
+(from previous experience) to go to MS as a last resort, but you know 
+how we programmers sometimes lose our senses. </p>
+<p>Anyway, maybe I’m out of the times or uninformed here, but I would 
+like to see the GC tell us ONE place where objects are still alive: for 
+debugging purposes. The objects can be registered separately with the 
+GC, and then every 3 seconds or so after it completes its cleaning, 
+raise an event that provides this information. Each event handler should
+ be given its own thread to avoid one event handler from unfairly 
+blocking the others. Where objects are alive can be given in increments.
+ </p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">wasthebest</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">29 Nov 2008 8:45 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Never mind. I discovered the Remote Performance Monitor (<a rel="nofollow" target="_new" href="http://blogs.msdn.com/stevenpr/archive/2007/03/08/finding-managed-memory-leaks-using-the-net-cf-remote-performance-monitor.aspx">http://blogs.msdn.com/stevenpr/archive/2007/03/08/finding-managed-memory-leaks-using-the-net-cf-remote-performance-monitor.aspx</a>) which basically provides what I had in mind, but in a more meaningful way.</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="TrackBack" rel="nofollow" href="http://samgentile.com/Web/new-and-notable/new-and-notable-279/">Sam Gentile's Blog</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">3 Dec 2008 9:56 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>First new and 
+notable with the new Graffiti blog. WCF/Cloud Services Aaron has his 
+latest in his series of WCF screencasts , this time showing how to host 
+WCF services within traditional Windows services Aaron also has a 
+geekSpeak webcast on Cloud Services</p>
+</div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="Nomad" rel="nofollow" href="http://runserver.net/">Nomad</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">20 Mar 2009 7:46 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>We have large 
+network server app with gcServer turned on. GC threads are using about 
+5-10% of CPU time but it runs rather smoothly. Blocking delays are 
+almost unnoticeable.</p>
+<p>Could I benefit from switching to .Net 4.0 and background GC in that case?</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item user-is-author">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header user-is-author"><div class="r fiji-r"></div></div>
+							    <div class="full-post user-is-author"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    <span class="avatar"><a href="http://blogs.msdn.com/members/maoni/"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></a></span>
+					    
+					    <span class="user-name"><a class="internal-link view-user-profile" href="http://blogs.msdn.com/members/maoni/"><span></span>maoni</a></span>
+					    
+				    </div>
+				    <div class="post-date">
+					    <span class="value">27 Mar 2009 6:59 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Nomad, if the 
+latency is not an issue, I would recommand to stay with gcServer 'cause 
+it offers great performance benefit with mulitple GC threads collecting 
+the heap for you.</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer user-is-author"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="Dusan" rel="nofollow" href="http://dbj.org/">Dusan</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">24 Apr 2009 9:02 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Can you please somehow *push* your GC to be used in/for Microsoft ECMA/JavaScript ? Particularly inside IE8.</p>
+<p>Regards: Dusan</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">Metta</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">25 May 2009 4:49 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Hi Maoni</p>
+<p>This is a bit unrelated to the topic, but I see an application using 
+server GC where "% time in GC" perf counter keeps stuck at the same 
+value for minutes after running for a bit and all other processing seems
+ to stop. CPU spins at 100% on one processor. This is triggered by a Gen
+ 0 collection, so I wonder if this is a GC related issue or not.</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name"><a title="TrackBack" rel="nofollow" href="http://blogs.msdn.com/tess/archive/2009/05/29/background-garbage-collection-in-clr-4-0.aspx">If broken it is, fix it you should</a></span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">29 May 2009 7:23 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Yesterday I found this really nice Channel 9 interview with Maoni Stevens (Dev Owner of the CLR GC) and</p>
+</div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">Alexandre Eduardo</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">19 Jun 2009 1:49 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Quotting:</p>
+<p>"We are not offering background GC for server GC in V4.0. It’s under 
+consideration – we recognize how important it is for server applications
+ (which usually have much larger heaps than client apps) to benefit from
+ smaller latency but the work did not fit in our V4.0 timeframe. For now
+ for server applications, I would recommend you to look at the full GC 
+notification feature we added in .NET 3.5 SP1. It’s explained here: <a rel="nofollow" target="_new" href="http://msdn.microsoft.com/en-us/library/cc713687.aspx">http://msdn.microsoft.com/en-us/library/cc713687.aspx</a>.
+ Basically you register to get notified when a full GC is approaching 
+and when it’s finished. This allows you to do software load balancing 
+between different server instances – when a full GC is about to happen 
+in one of the server instances, you can redirect new requests to other 
+instances."</p>
+<p>Maoni,</p>
+<p>First of all, congrats! Your blog is really interesting. Every time I look at it, I find some interesting news.</p>
+<p>Concerning to the server GC, it would be great to have such behavior (background gc) within.</p>
+<p>Unfortunatelly, for real-time/time-critical applications (on wich 
+every microsecond is really really precious), the cost of changing to 
+another process after a GC notification is too expensive to be 
+considered. More than that, an extra overhead should be added to the 
+application in order to synchronize both process with the same state 
+information (even shared memory has a little cost).</p>
+<p>Hugs!</p>
+<p>Alexandre</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">John</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">22 Jun 2009 1:35 PM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>Are there any plans to make the ephemeral heap size configurable? &nbsp;</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    
+						    <li class="content-item">
+							    <div class="full-post-outer fiji-full-post-outer"><div class="full-post-header"><div class="r fiji-r"></div></div>
+							    <div class="full-post"><div class="full-post-inner fiji-full-post-inner">
+					    
+				    <div class="post-author">
+					    
+					    <span class="avatar"><img src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/anonymous.gif" alt="" style="border-width: 0px; max-height: 32px; max-width: 32px;"></span>
+					    
+					    <span class="user-name">Joe</span>
+				    </div>
+				    <div class="post-date">
+					    <span class="value">23 Jun 2009 9:18 AM</span>
+				    </div>
+				    <div class="post-content user-defined-markup"><p>I just wanted 
+to say this is a big step in the right direction for allowing .net to 
+meet the requirements of the software I work on. &nbsp;I am extremely 
+excited to see the Server mode support background GC. &nbsp;Any idea 
+when this could be seen in any betas?</p>
+<div style="clear: both;"></div></div>
+				    <div class="post-actions">
+					    
+				    </div>
+				    
+							    </div>
+							    </div><div class="full-post-footer"><div class="r fiji-r"></div></div></div>
+						    </li>
+					    
+			    
+				    </ul>
+				    <div class="content-list-footer"></div>
+			     
+		    <div class="pager">
+        <span class="summary">Page 1 of 2 (22 items)</span>
+    <a class="selected" href="http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx?PageIndex=1#comments"><span>1</span></a><span class="separator"></span><a class="page" href="http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx?PageIndex=2#comments"><span>2</span></a><span class="separator"></span></div>
+		</div>
+	</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+<div class="content-fragment captcha-blog-post-comment-form no-wrapper" id="fragment-32172">
+<div class="content-fragment-inner fiji-content-fragment-inner"><div class="content-fragment-top fiji-content-fragment-top"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div><div class="content-fragment-content">
+
+    
+            <div class="field-list-header"></div>
+            <fieldset class="field-list">
+                <legend class="field-list-description">Leave a Comment</legend>
+                <ul class="field-list">
+                    <li id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_NameField" class="field-item">
+                        <label for="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName" class="field-item-header">Name</label>
+                        <span class="field-item-input"><input name="ctl00$content$ctl00$fragment_32172$ctl01$ctl00$ctl00$ctl05$bpCommentForm$ctl05$tbName" size="60" id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName" type="text"></span>
+                        <span id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV" style="color: Red; display: none;"><span class="field-item-validation">*</span></span>
+                    </li>
+                    <li class="field-item post-body">
+                        <label for="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment" class="field-item-header">Comment</label>
+                        <span class="field-item-input"><textarea tabindex="-1" rows="2" cols="20" style="height: 100px; overflow-y: hidden; position: absolute; top: 0px; left: -9999px; width: 570px; line-height: 15px; text-decoration: none; letter-spacing: normal;"></textarea><textarea name="ctl00$content$ctl00$fragment_32172$ctl01$ctl00$ctl00$ctl05$bpCommentForm$ctl05$tbComment" rows="2" cols="20" id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment" style="height: 100px; overflow-y: hidden;"></textarea></span>
+                        <span id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV" style="color: Red; display: none;"><span class="field-item-validation">* Please enter a comment</span></span>
+                    </li>
+                    <li class="field-item">
+                        
+                           <span id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha" style="color: Red; display: none;">*</span><span style="display: none;" id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_subtext_captcha">Please add 2 and 6 and type the answer here: <input name="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_visibleanswer" type="text"></span>
+
+
+                    </li>
+                    <li class="field-item">
+                        <span class="field-item-input"><a id="ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_btnSubmit" class="internal-link add-reply" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("ctl00$content$ctl00$fragment_32172$ctl01$ctl00$ctl00$ctl05$bpCommentForm$ctl05$btnSubmit",%20"",%20true,%20"BlogPostCommentForm-ctl00_content_ctl00_fragment_32172_ctl01_ctl00",%20"",%20false,%20true))'><span></span>Post</a></span>
+                    </li>
+                </ul>
+            </fieldset>
+            <div class="field-list-footer"></div>
+        
+    
+</div>
+<div class="content-fragment-footer"></div>
+<div class="content-fragment-bottom fiji-content-fragment-bottom"><div class="r1 fiji-r1"></div><div class="r2 fiji-r2"></div><div class="r3 fiji-r3"></div><div class="r4 fiji-r4"></div></div></div></div>
+</div>
+</div>
+</div>
+<div class="layout-footer"></div>
+</div></div>
+
+			<div class="footer-fragments-header"></div>
+<div class="footer-fragments"><div class="footer-fragment copyright-info" id="fragment-a1d162ff-8141-46d3-a9e1-7543983b5a07">
+
+<ul class="footer-fragment-links">
+    <li class="message copyright">© 2010 Microsoft Corporation.</li>
+    <li class="message termsOfService"><a href="http://msdn.microsoft.com/en-us/cc300389.aspx">Terms of Use</a></li>
+    <li class="message trademarks"><a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a> </li>
+    <li class="message privacy"><a href="http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a> </li>
+    <li class="message abuse">
+    
+            <a id="ctl00_fragment_a1d162ff_8141_46d3_a9e1_7543983b5a07_ctl01_ctl00_ctl01_lnkAbuse" href='javascript:WebForm_DoPostBackWithOptions(new%20WebForm_PostBackOptions("ctl00$fragment_a1d162ff_8141_46d3_a9e1_7543983b5a07$ctl01$ctl00$ctl01$lnkAbuse",%20"",%20true,%20"",%20"",%20false,%20true))'>Report Abuse</a>
+        
+    </li>
+    
+</ul>
+</div><div class="footer-fragment omniture-footer-fragment" id="fragment-e19076c8-c9bb-458a-a776-be990e7808e6">
+
+
+<script type="text/javascript" src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/omni_rsid_msdn_current.js"></script>
+        <noscript><a href="http://www.omniture.com" title="Web Analytics"><img
+        src="http://msstomsdnblogs.112.2O7.net/b/ss/msstomsdnblogs/1/H.20.2--NS/0"
+        height="1" width="1" border="0" alt="" /></a></noscript>
+
+</div><div class="footer-fragment user-info-popup" id="fragment-9b18839a-435e-4612-b2db-cb5caa02c644">
+
+<script src="so-what-s-new-in-the-clr-4-0-gc.aspx_elemei/UserInfoPopup.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+    // <![CDATA[
+    var Core_UserInfoPopup_AjaxEndpoint =
+        '/Utility/FooterFragments/Core/UserInfoPopupAjax.asmx';
+        
+    var ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644={"wrapperId":"fragment-9b18839a-435e-4612-b2db-cb5caa02c644","variableName":"ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644","parameter":{"popupName":"ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644_ctl01_UserInfoPopup","userProfileUrlPattern":"^(?:/|http://blogs\\.msdn\\.com/)members/([^/]+)/","userAvatarUrlPattern":"^(?:/|http://blogs\\.msdn\\.com/).*?_key/CommunityServer.Components.Avatars/([0-9\\.]*)/","messageHtml":"\r\n                <div class=\"arrow fiji-arrow\"></div><div class=\"abbreviated-post-header\"><div class=\"l fiji-l\"></div><div class=\"r fiji-r\"></div></div><div class=\"outer-wrapper fiji-outer-wrapper\"><div class=\"inner-wrapper fiji-inner-wrapper\">\r\n                <div class=\"abbreviated-post\">\r\n                    <div class=\"post-summary\">{Message}</div>\r\n                </div>\r\n                </div></div><div class=\"abbreviated-post-footer\"><div class=\"l fiji-l\"></div><div class=\"r fiji-r\"></div></div>\r\n            ","userInfoHtml":"\r\n                <div class=\"arrow fiji-arrow\"></div><div class=\"abbreviated-post-header\"><div class=\"l fiji-l\"></div><div class=\"r fiji-r\"></div></div><div class=\"outer-wrapper fiji-outer-wrapper\"><div class=\"inner-wrapper fiji-inner-wrapper\">\r\n                <div class=\"abbreviated-post\">\r\n                    <h4 class=\"post-name\">{DisplayName}</h4>\r\n                    <div class=\"post-attributes\">\r\n                        <div class=\"attribute-list-header\"></div>\r\n                        <ul class=\"attribute-list\">\r\n                            <li class=\"attribute-item post-rank\">\r\n                                <span class=\"attribute-value\">{PostRank}</span> <span class=\"attribute-name\">Post Rank</span>\r\n                            </li>\r\n                            {PostCountArea}\r\n                            {PointCountArea}\r\n                            {UserRankArea}\r\n                            {RoleIconArea}\r\n                        </ul>\r\n                        <div class=\"attribute-list-footer\"></div>\r\n                    </div>\r\n                </div>\r\n                </div></div><div class=\"abbreviated-post-footer\"><div class=\"l fiji-l\"></div><div class=\"r fiji-r\"></div></div>\r\n            ","postCountAreaHtml":"\r\n                <li class=\"attribute-item post-count\">\r\n                    <span class=\"attribute-value\">{PostCount}</span> <span class=\"attribute-name\">Posts</span>\r\n                </li>\r\n            ","pointCountAreaHtml":"\r\n                <li class=\"attribute-item point-count\">\r\n                    <span class=\"attribute-value\">{PointCount}</span> <span class=\"attribute-name\">Points</span>\r\n                </li>\r\n            ","userRankAreaHtml":"\r\n                <li class=\"attribute-item user-rank\">\r\n                    <span class=\"attribute-value\">{UserRank}</span> <span class=\"attribute-name\">User Rank</span>\r\n                </li>\r\n            ","roleIconAreaHtml":"\r\n                <li class=\"attribute-item role-icons\">\r\n                    <span class=\"attribute-value\">{RoleIcons}</span> <span class=\"attribute-name\">Roles</span>\r\n                </li>\r\n            "}};
+            
+    $(document).ready(function() {
+        Core_UserInfoPopup_AttachToUserElements(ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644);
+    });
+    // ]]>
+</script>
+
+<div id="ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644_ctl01_UserInfoPopup" style="position: absolute; visibility: hidden; left: -5000px;"></div></div></div>
+<div class="footer-fragments-footer"></div>
+		
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Validator"), document.getElementById("ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV"), document.getElementById("ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV"), document.getElementById("ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Validator = document.all ? document.all["ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Validator"] : document.getElementById("ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Validator");
+ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Validator.display = "Dynamic";
+ctl00_content_ctl00_fragment_32164_ctl01_ctl01_ctl01_Validator.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV = document.all ? document.all["ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV"] : document.getElementById("ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV");
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.controltovalidate = "ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbName";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.display = "Dynamic";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_fragment_32172_ctl01_ctl00";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbNameRFV.initialvalue = "";
+var ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV = document.all ? document.all["ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV"] : document.getElementById("ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV");
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.controltovalidate = "ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.display = "Dynamic";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_fragment_32172_ctl01_ctl00";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbCommentRFV.initialvalue = "";
+var ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha = document.all ? document.all["ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha"] : document.getElementById("ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha");
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.errormessage = "*";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.display = "Dynamic";
+ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha.validationGroup = "BlogPostCommentForm-ctl00_content_ctl00_fragment_32172_ctl01_ctl00";
+//]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+ctl00_content_ctl00 = new ContentFragmentPageCustomCallback('ctl00_content_ctl00',new Function('mode','parameters','callback','errorCallback','context','ctl00_content_ctl00_ctl00._doCallback(mode+\':\'+parameters,callback,context,errorCallback);'));
+// ]]>
+</script>
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+<rdf:Description
+rdf:about="http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx"
+dc:identifier="http://blogs.msdn.com/b/maoni/archive/2008/11/19/so-what-s-new-in-the-clr-4-0-gc.aspx"
+dc:title="So, what’s new in the CLR 4.0 GC?"
+trackback:ping="http://blogs.msdn.com/b/maoni/trackback.ashx?WeblogPostID=9126846" />
+</rdf:RDF>
+-->
+<script type="text/javascript">
+// <![CDATA[
+Telligent_Modal.Configure('/utility/loading.htm',['modal'],['modal-title','modal-title-2','modal-title-3','modal-title-4'],['modal-close'],['modal-content','modal-content-2'],['modal-footer','modal-footer-2','modal-footer-3'],['modal-resize'],['modal-mask'],10000,false,true,true);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_content_ctl00_ctl00 = new Telligent_CallbackManager('ctl00_content_ctl00_ctl00','ctl00$content$ctl00$ctl00','aspnetForm');
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+<script type="text/javascript">
+// <![CDATA[
+var ctl00_content_ctl00_fragment_32169_ctl01_ctl01=new RateableContentRating('ctl00_content_ctl00_fragment_32169_ctl01_ctl01','ctl00_content_ctl00_fragment_32169_ctl01_ctl01','ctl00_content_ctl00_fragment_32169_ctl01_ctl01_Value', 5, '/Utility/images/', false, 'rating','rating active','rating readonly',['Terrible','Poor','Fair','Average','Good','Excellent'],true,true);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();//]]>
+</script>
+<script type="text/javascript">
+				// <![CDATA[
+				var ctl00_content_ctl00_fragment_32169_ctl01_ctl01_ajax={"SaveRating":function(rating,successFunction,failureFunction){WebForm_DoCallback('ctl00$content$ctl00$fragment_32169$ctl01$ctl01',rating,successFunction,rating,failureFunction,true)}};
+				// ]]>
+				</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_content_ctl00_fragment_32169_ctl01_ctl15_ctl02 = new Telligent_InlineEditorPanel('ctl00_content_ctl00_fragment_32169_ctl01_ctl15_ctl02','ctl00_content_ctl00_fragment_32169_ctl01_ctl15_ctl02','ctl00_content_ctl00_fragment_32169_ctl01_ctl15_ctl02_State','ctl00_content_ctl00_fragment_32169_ctl01_ctl15_ctl01',false,null,null,null);
+// ]]>
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_content_ctl00_fragment_32171_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList = new DelayedContent('ctl00_content_ctl00_fragment_32171_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList','ctl00_content_ctl00_fragment_32171_ctl01_ctl00_ctl02_ctl05_DelayedFeedbackList','ctl00_content_ctl00._customCallback(\'fragment-32171\',\'ctl00$content$ctl00$fragment_32171$ctl01$ctl00$ctl02$ctl05$DelayedFeedbackList\',argument,null,callback,null)',true,true,null);
+// ]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+$('#ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_tbComment').autoResize({animate : false,extraSpace : 0,limit : 3000});//]]>
+</script>
+<script type="text/javascript">
+subtext_invisible_captcha_hideFromJavascriptEnabledBrowsers('ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_subtext_captcha');
+</script><script type="text/javascript">
+subtext_invisible_captcha_setAnswer(2, 6, 'ctl00_content_ctl00_fragment_32172_ctl01_ctl00_ctl00_ctl05_bpCommentForm_ctl05_invisibleCaptcha_answer');
+</script><script type="text/javascript">
+// <![CDATA[
+window.ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644_ctl01_UserInfoPopup = new Telligent_PopupPanel('ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644_ctl01_UserInfoPopup','menu user-info-popup-content','downright',100,null,null,false,'ctl00_fragment_9b18839a_435e_4612_b2db_cb5caa02c644_ctl01_UserInfoPopup',null,null);
+// ]]>
+</script></form>
+	
+        <script type="text/javascript">$('div.breadcrumb-list span:last a').addClass('last');</script></body></html>

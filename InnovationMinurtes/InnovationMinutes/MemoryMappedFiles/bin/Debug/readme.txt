@@ -1,0 +1,3 @@
+﻿egy
+ketto
+harom

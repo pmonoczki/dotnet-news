@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Assembly>
+  <Method Name="CodeContract.BC.GetStringNumber(System.Int32)">
+    <Outcome Kind="Ensures" Outcome="Top" Message="ensures unproven: Contract.Result&lt;string&gt;() != null (The incoming num should not be null as return! Avoid the use of num 9!)" PrimaryILOffset="1e" MethodILOffset="33" />
+  </Method>
+  <Method Name="CodeContract.Program.Main()">
+    <Outcome Kind="Nonnull" Outcome="Top" Message="Possible use of a null array 'allDrives'" PrimaryILOffset="16" MethodILOffset="0" />
+    <Outcome Kind="Assert" Outcome="Top" Message="assert unproven" PrimaryILOffset="a" MethodILOffset="0" />
+  </Method>
+</Assembly>

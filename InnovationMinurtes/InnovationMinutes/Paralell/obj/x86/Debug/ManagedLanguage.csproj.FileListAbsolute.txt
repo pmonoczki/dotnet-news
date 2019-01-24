@@ -1,0 +1,37 @@
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Test.py
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.Modules.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Dynamic.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.Debugging.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.dll
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Test.py
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.dll
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.Modules.dll
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Dynamic.dll
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.Debugging.dll
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.dll
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Test.py
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.dll
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.Modules.dll
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Dynamic.dll
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.Debugging.dll
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.dll
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.pdb

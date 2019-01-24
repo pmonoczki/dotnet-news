@@ -1,0 +1,8 @@
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\readme.txt
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.exe
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.pdb
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.exe
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.pdb
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\Decl\MemoryMappedFiles.exe
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\Decl\MemoryMappedFiles.pdb

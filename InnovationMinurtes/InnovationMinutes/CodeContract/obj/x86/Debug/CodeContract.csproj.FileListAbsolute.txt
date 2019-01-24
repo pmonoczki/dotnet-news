@@ -1,0 +1,21 @@
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\CodeContract.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\CodeContract.pdb
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContract.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContract.pdb
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\CodeContract.rewritten
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\Decl\CodeContract.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\Decl\CodeContract.pdb
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\CodeContractAnalysisRun.log
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContracts\CodeContract.Contracts.dll
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContracts\CodeContract.Contracts.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContracts\CodeContract.Contracts.dll
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContracts\CodeContract.Contracts.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContract.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\bin\Debug\CodeContract.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\Decl\CodeContract.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\Decl\CodeContract.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\CodeContract.rewritten
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\CodeContract.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\CodeContract\obj\x86\Debug\CodeContract.pdb

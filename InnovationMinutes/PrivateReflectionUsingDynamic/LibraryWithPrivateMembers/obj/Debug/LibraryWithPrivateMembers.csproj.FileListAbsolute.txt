@@ -1,0 +1,10 @@
+D:\dd\Personal\davidebb\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\bin\Debug\LibraryWithPrivateMembers.dll
+D:\dd\Personal\davidebb\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\bin\Debug\LibraryWithPrivateMembers.pdb
+D:\dd\Personal\davidebb\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\obj\Debug\ResolveAssemblyReference.cache
+D:\dd\Personal\davidebb\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\obj\Debug\LibraryWithPrivateMembers.dll
+D:\dd\Personal\davidebb\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\obj\Debug\LibraryWithPrivateMembers.pdb
+D:\tmp\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\bin\Debug\LibraryWithPrivateMembers.dll
+D:\tmp\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\bin\Debug\LibraryWithPrivateMembers.pdb
+D:\tmp\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\obj\Debug\ResolveAssemblyReference.cache
+D:\tmp\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\obj\Debug\LibraryWithPrivateMembers.dll
+D:\tmp\PrivateReflectionUsingDynamic\LibraryWithPrivateMembers\obj\Debug\LibraryWithPrivateMembers.pdb

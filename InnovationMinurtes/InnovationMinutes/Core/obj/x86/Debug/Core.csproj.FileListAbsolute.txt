@@ -1,0 +1,23 @@
+I:\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.exe
+I:\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.pdb
+I:\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.exe
+I:\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.pdb
+I:\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Decl\Core.exe
+I:\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Decl\Core.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Decl\Core.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Decl\Core.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Finito\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.exe.config
+I:\Finito\InnovationMinurtes\InnovationMinutes\Core\bin\Debug\Core.exe.config
+I:\Finito\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.exe
+I:\Finito\InnovationMinurtes\InnovationMinutes\Core\obj\x86\Debug\Core.pdb

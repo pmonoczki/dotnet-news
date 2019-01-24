@@ -1,0 +1,7 @@
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\ConsoleOutputter\bin\Debug\ConsoleOutputter.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\ConsoleOutputter\bin\Debug\ConsoleOutputter.pdb
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\ConsoleOutputter\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\ConsoleOutputter\obj\Debug\ConsoleOutputter.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\ConsoleOutputter\obj\Debug\ConsoleOutputter.pdb
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\ConsoleOutputter\obj\Debug\Decl\ConsoleOutputter.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\ConsoleOutputter\obj\Debug\Decl\ConsoleOutputter.pdb

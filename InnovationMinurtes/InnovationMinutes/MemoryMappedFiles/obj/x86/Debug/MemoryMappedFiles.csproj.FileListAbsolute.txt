@@ -1,0 +1,22 @@
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\readme.txt
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.exe
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.pdb
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.exe
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.pdb
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\Decl\MemoryMappedFiles.exe
+I:\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\Decl\MemoryMappedFiles.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\readme.txt
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\Decl\MemoryMappedFiles.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\Decl\MemoryMappedFiles.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\readme.txt
+G:\Finito\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\bin\Debug\MemoryMappedFiles.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Finito\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\MemoryMappedFiles\obj\x86\Debug\MemoryMappedFiles.pdb

@@ -1,0 +1,2013 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+
+
+
+
+
+	<title>The Rx Framework By Example - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="RxByExample.aspx_elemei/CodeProject.css">
+
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Description" content="An introduction to the Reactive Framework using some practical examples; Author: Phil Martin...; Section: Parallel Programming; Chapter: General Programming">
+<meta name="Keywords" content="C#3.0, C#, Intermediate,Parallel Programming,General Programming,Free source code, tutorials">
+<meta name="Author" content="The Code Project">
+<meta name="Rating" content="General">
+<meta name="Robots" content="index, follow">
+<meta name="Revisit-After" content="1 days">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All topics" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC / C++" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - ASP.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - .NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx">
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml">
+
+	<!-- base -->
+	<link rel="icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="apple-touch-icon" href="http://www.codeproject.com/images/FavIcon-Apple.png" type="image/png">
+<script type="text/javascript" language="Javascript">//<![CDATA[
+if(top!=self)top.location.href=location.href; if(typeof(DemoUrl)!="undefined")document.write(unescape('%3Cme')+'ta http'+'-equiv="re' +'fresh" con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+function SelfCheck(){ return window.confirm("You are about to reply to your own message. Is this really what you want?");}
+function MarkAns(MemberID,MsgID,gp,bp,mt,QID){
+ document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\"  onclick=\"RateMsg("+MemberID.toString()+","+MsgID.toString()+",6,"+QID.toString()+");\"%3E"));
+ document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/good.png\" alt=\"good\" border=\"0\" align=\"absmiddle\" /%3E "+gp+" "+mt+"%3C/a%3E "));
+ document.write(" &nbsp;"); document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\"  onclick=\"RateMsg("+MemberID.toString()+","+MsgID.toString()+",7,"+QID.toString()+");\"%3E"));
+ document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/bad.png\" alt=\"bad\" border=\"0\" align=\"absmiddle\" /%3E "+bp+" "+mt+"%3C/a%3E"));
+}
+
+function MsgVFrm(MemberID,MsgID,GB,gp,bp,mt){
+ if(!GB)document.write("Rate this message: ");
+ document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\" onclick=\"RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ","));document.write((GB?"5":"1")+unescape(",0);\"%3E"));
+ if(GB) document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/good.png\" alt=\"good\" border=\"0\" align=\"absmiddle\" /%3E "+gp+" "+mt+"%3C/a%3E "));
+ else document.write(unescape("%3Cimg height=\"14\" width=\"14\" src=\"http://s.codeproject.com/script/Forums/Images/thumbs_down.gif\" alt=\"vote 1\" border=\"0\" align=\"middle\" /%3E%3C/a%3E "));
+ if(GB)document.write(" &nbsp;"); else for(var i=1; i<=5;i++)
+  document.write(unescape("%3Ca class=\"toolbar\" href=\"#xx" + MsgID.toString() + "xx\" title=\"vote this message a " + i.toString() + "\" onclick=\"RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ", " + i.toString() + ",0)\"%3E%3Cb%3E" + i.toString() + "%3C/b%3E%3C/a%3E "));
+ document.write(unescape("%3Ca href=\"#xx" + MsgID.toString() + "xx\" onclick=\"RateMsg(" + MemberID.toString() + ", " + MsgID.toString() + ","));document.write((GB?"1":"5")+unescape(",0);\"%3E"));
+ if(GB)document.write(unescape("%3Cimg height=\"20\" width=\"20\" src=\"/script/Forums/Images/bad.png\" alt=\"bad\" border=\"0\" align=\"absmiddle\" /%3E "+bp+" "+mt+"%3C/a%3E"));
+ else document.write(unescape("%3Cimg height=\"14\" width=\"14\" src=\"http://s.codeproject.com/script/Forums/Images/thumbs_up.gif\" border=\"0\" alt=\"vote 5\" align=\"middle\" /%3E%3C/a%3E "));
+}
+
+function ReportMsg(userid, msgid, score) {
+ if (confirm("Are you sure you want this message removed?"))
+  return RateMsg(userid, msgid, score, 0);
+ else return false;
+}
+function RateMsg(memberid, msgid, score, questionId) {
+ var req = new XMLHttpRequest();
+ req.onreadystatechange = function() {
+  if (req.readyState == 4){
+   if (req.status == 200){
+    var respText = req.responseText;
+    var re = new RegExp(unescape("\%3Cdiv\%3E([^\%3C]*)\%3C/div\%3E"), "g");
+    var match = re.exec(respText);
+    voteStatus.innerHTML = unescape("%3Cb%3E") + (match&&match[1])?match[1]:"An error occured" + unescape("%3C/b%3E");
+   } else
+    voteStatus.innerHTML = unescape("%3Cb style='color:red'%3EFailed!") + req.statusText + unescape("%3C/b%3E");
+  }
+ }
+ var voteStatus = document.getElementById("MVF" + msgid);
+ if (!voteStatus) return;
+ voteStatus.innerHTML = unescape("%3Cb style='color:green'%3EVoting...%3C/b%3E");
+ var strAction = "/script/Forums/Vote.aspx?js=1&fmid="+memberid.toString()+"&select="+msgid.toString()+"&score="+score.toString()+"&qid="+questionId.toString();
+ req.open("GET", strAction, true);
+ req.send(null);
+  return false;
+}
+var Selected = "-1";
+function Pin(elm){
+ CloseMsg(Selected);
+ var wrk=elm.parentNode; if(wrk)wrk=wrk.children[0];
+ var fc=elm?elm.firstChild:null;
+ if (wrk&&!wrk.pinned) {
+  OpenMsg(wrk.name, true);wrk.pinned=true;fc.src='http://s.codeproject.com/script/forums/images/pinned.gif';fc.title='Pinned. Click to unpin'
+ } else {
+  wrk.pinned=false;CloseMsg(wrk.name); fc.src='http://s.codeproject.com/script/forums/images/pin.gif';fc.title='Click to pin message'
+ }
+ return false;
+}
+function CloseMsg(msgId) {
+ if(!msgId||msgId==''||msgId<0)return;
+ var lnk=document.getElementsByName(msgId);
+ if(lnk&&lnk.length>0&&lnk[0].pinned)return;
+ var hed=document.getElementById('F' + msgId.toString() + '_h0');
+ if(hed) hed.className = hed.className.replace("Sel", "UnSel");
+ var bdy=document.getElementById('F' + msgId.toString() + '_h1');
+ if(bdy) bdy.style.display = 'none';
+}
+function OpenMsg(msgId, keep) {
+ if(!msgId||msgId==''||msgId<0)return;
+ var bdy=document.getElementById('F' + msgId.toString() + '_h1');
+ if(bdy){
+  var lnk=document.getElementsByName(msgId);
+  if(lnk&&lnk.length>0&&lnk[0].pinned)keep=true;
+  if(keep&&bdy.style.display!='none')return;
+  if(bdy.style.display=='none') bdy.style.display='';
+  else bdy.style.display = 'none';
+ }
+ var hed=document.getElementById('F' + msgId.toString() + '_h0');
+ if (hed) hed.className = hed.className.replace('UnSel', 'Sel');
+ if(bdy&&hed&&bdy.style.display!='none'){
+  var webkitWeird=document.documentElement.scrollTop < document.body.scrollTop;
+  if (!webkitWeird)document.body.scrollTop = getRealPos(hed, 'Top') - document.body.clientHeight/10;
+  EnsureMessageVisible(msgId, true);
+ }
+}
+function EnsureMessageVisible(msgID, bShowTop) {
+	var webkitWeird = document.documentElement.scrollTop < document.body.scrollTop;
+	var msgHeader = document.getElementById('F' + msgID + '_h0');
+	var msgBody = document.getElementById('F' + msgID + '_h1');
+	if (!msgBody || !msgHeader) return;
+	var scrollContainer = document.documentElement;
+	var top = getRealPos(msgHeader, 'Top');
+	var bottom = getRealPos(msgBody, 'Top') + msgBody.offsetHeight;
+	var scrollTop = webkitWeird? scrollTop = document.body.scrollTop:document.documentElement.scrollTop;
+	if (scrollTop > top && !bShowTop) scrollTop = top - scrollContainer.clientHeight / 10;
+	if (scrollTop + scrollContainer.clientHeight < bottom) scrollTop = bottom - scrollContainer.clientHeight;
+	if (scrollTop > top && bShowTop) scrollTop = top - scrollContainer.clientHeight / 10;
+	if (webkitWeird) document.body.scrollTop = scrollTop; else scrollContainer.scrollTop = scrollTop;
+}
+function getRealPos(i,which) {
+	iPos = 0;
+	while (i!=null)  {
+		iPos += i['offset' + which];
+		i = i.offsetParent;
+	}
+	return iPos;
+}
+
+function SwitchMessage(e, msgId)
+{
+
+  if (msgId) msgId=msgId.toString();
+
+  else {
+
+    if(!e)e=window.event;
+
+    var target=e.target?e.target:e.srcElement;
+
+    while(target&&target.id!='DynMessLink')target=target.parentNode;
+    if(!target||target.id!='DynMessLink')return;
+    if(target.pinned){Selected='';return false;}
+    msgId=target.name;
+  }
+  CloseMsg(Selected)
+  if(Selected==msgId) Selected='';
+  else { OpenMsg(msgId, false); Selected=msgId;}
+  if (e){if(e.preventDefault)e.preventDefault;else e.returnValue=false;}
+  return false;
+}
+
+
+//]]>
+</script>
+
+<script src="RxByExample.aspx_elemei/ga.js" async="" type="text/javascript"></script></head><body>
+
+<a href="#Main"><img alt="Click here to Skip to main content" class="access-link" src="RxByExample.aspx_elemei/t_002.gif"></a>
+
+
+
+
+<div class="container nav-memberbar clearfix">
+<div class="member-stats float-left">7,449,337 members and growing! (37,962 online)</div>
+<div class="float-left"></div>
+<div class="float-right">
+<span id="ctl00_MemberMenu_CurRat" class="tooltip">
+		<a id="ctl00_MemberMenu_MyProfile" href="http://www.codeproject.com/Members/download-pakko">download_pakko</a><img src="RxByExample.aspx_elemei/arrow-down-16.png" style="width: 16px; height: 16px; vertical-align: bottom;">
+		<div class="tooltip-flyout" style="width: 110px ! important;">
+			<div><a id="ctl00_MemberMenu_MySettings" href="https://www.codeproject.com/script/Membership/Modify.aspx">My Settings</a></div>
+			<div><a id="ctl00_MemberMenu_MyContacts" href="http://www.codeproject.com/script/Membership/ListContacts.aspx">My Contact info</a></div>
+			<div><a id="ctl00_MemberMenu_MyBookmarks" href="http://www.codeproject.com/script/Bookmarks/List.aspx?obtid=2">My Bookmarks</a></div>
+			
+			<div><a id="ctl00_MemberMenu_MyCodeProject" href="http://www.codeproject.com/script/Membership/MyCodeProject.aspx">My Watched Items</a></div>
+			<div><a id="ctl00_MemberMenu_MyArticles" href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=3031983">My Articles</a></div>
+			<div><a id="ctl00_MemberMenu_MyMessages" href="http://www.codeproject.com/script/Forums/Messages.aspx?fmid=3031983">My Messages</a></div>
+			
+		</div>
+	</span><a id="ctl00_MemberMenu_Signout" href="http://www.codeproject.com/script/Membership/LogOff.aspx?rp=%2fKB%2fParallel_Programming%2fRxByExample.aspx">Sign out</a>
+
+
+</div>
+
+</div>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+	<td class="header"><a href="http://www.codeproject.com/"><img id="ctl00_Logo" title="The Code Project" src="RxByExample.aspx_elemei/logo225x90.gif" alt="Home" style="border-width: 0px;"></a></td>
+	<td class="header" align="right">
+		<iframe src="RxByExample.aspx_elemei/i.htm" class="lqm_ad" marginheight="0" marginwidth="0" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="8" lqm_country="HU" lqm_tags="C#3.0,C#,Intermediate" frameborder="0" height="90px" scrolling="no" width="728px"></iframe>
+	</td>
+</tr></tbody></table>
+
+<table class="contrast1-background extended" cellpadding="0" cellspacing="0"><tbody><tr><td nowrap="nowrap">
+	
+
+<div class="navbar clearfix">
+<ul id="nav">
+
+<li><a id="ctl00_TopNavBar_Home" class="down" href="http://www.codeproject.com/">Home</a>
+
+</li><li><a id="ctl00_TopNavBar_Art" class="down selected" href="http://www.codeproject.com/script/Articles/Latest.aspx">Articles</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_ArtTopicList" class="fly last" onmouseover="PopulateMap(this, 'siteMap', '600px');" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Chapters and Sections</a><ul id="ctl00_TopNavBar_MapFlyout"><li>
+				<div id="siteMap" style="height: 0px; width: 0px; border: 1px solid green; background-color: white; overflow: scroll;">
+					<img src="RxByExample.aspx_elemei/animated.gif" style="margin: 150px; width: 100px; height: 100px;">
+				</div>
+			</li></ul>
+		</li>
+		<li><a id="ctl00_TopNavBar_ArtSearch" class="fly break" href="http://www.codeproject.com/info/search.aspx">Search</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestArts" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx">Latest Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestTips" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx?at=6">Latest Tips/Tricks</a></li>
+		<li><a id="ctl00_TopNavBar_ArtTop" class="fly" href="http://www.codeproject.com/script/Articles/TopArticles.aspx?ta_so=4">Top Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBeginner" class="fly" href="http://www.codeproject.com/info/search.aspx?aidlst=152&amp;sa_us=True">Beginner Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBlogArticles" class="fly break" href="http://www.codeproject.com/script/Articles/BlogArticleList.aspx">Technical Blogs</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostArticle" class="fly" href="http://www.codeproject.com/info/Submit.aspx">Post an Article</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostTipTrick" class="fly" href="http://www.codeproject.com/Tips/post.aspx">Post Tip &amp; Trick</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostBlog" class="fly break" href="http://www.codeproject.com/script/Articles/BlogFeed.aspx">Post your Blog</a></li>
+		<li><a id="ctl00_TopNavBar_ArtGuide" class="fly" href="http://www.codeproject.com/info/Submit.aspx">Posting/Update Guidelines</a></li>
+		<li><a id="ctl00_TopNavBar_ArtCompetition" class="fly last" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1">Article Competition</a></li>
+	</ul>
+
+</li>
+
+
+
+<li><a id="ctl00_TopNavBar_Answers" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">Questions &amp; Answers</a>
+	<ul>
+		<li id="ctl00_TopNavBar_AQL"><a id="ctl00_TopNavBar_ArticleQuestion" class="fly highlight" href="#_comments">Ask a Question about this article</a></li>
+
+		<li class="heading">Quick Answers</li>
+		<li><a id="ctl00_TopNavBar_QAAsk" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Ask a Question</a></li>
+		
+		
+		<li><a id="ctl00_TopNavBar_QAUnanswered" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=unanswered">View Unanswered Questions</a></li>
+		<li><a id="ctl00_TopNavBar_QALatest" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">View All Questions...</a></li>
+		
+				<li><a id="ctl00_TopNavBar_QATR_ctl00_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;tags=81" style="padding-left: 30px;">C# questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl01_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;tags=85" style="padding-left: 30px;">ASP.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl02_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;tags=842" style="padding-left: 30px;">VB.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl03_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;tags=78" style="padding-left: 30px;">C++ questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl04_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&amp;tags=69" style="padding-left: 30px;">C#3.0 questions</a></li>
+			
+		<li class="heading">Programming Discussions</li>
+		<li><a id="ctl00_TopNavBar_MessageBoardsAll" class="fly" href="http://www.codeproject.com/script/Forums/List.aspx">All Message Boards...</a></li>
+		<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1580997/Application-Lifecycle.aspx">Application Lifecycle<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/369270/Design-and-Architecture.aspx">Design and Architecture</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533717/Running-a-Business.aspx">Running a Business</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533716/Sales-Marketing.aspx">Sales / Marketing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1651/Collaboration-Beta-Testing.aspx">Collaboration / Beta Testing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3304/Work-Training-Issues.aspx">Work &amp; Training Issues</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1647/C-Cplusplus-MFC.aspx">C / C++ / MFC<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/4486/ATL-WTL-STL.aspx">ATL /  WTL / STL</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3785/Managed-Cplusplus-CLI.aspx">Managed C++/CLI</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1649/Csharp.aspx">C#</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1725/Database.aspx">Database</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1642/IT-Infrastructure.aspx">IT &amp; Infrastructure<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/186301/Hardware-Devices.aspx">Hardware &amp; Devices</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1644/System-Admin.aspx">System Admin</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1643/Java.aspx">Java</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1650/NET-Framework.aspx">.NET Framework</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/13695/Mobile.aspx">Mobile</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1540733/Sharepoint.aspx">Sharepoint</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1004257/Silverlight-WPF.aspx">Silverlight / WPF</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1646/Visual-Basic.aspx">Visual Basic</a>
+</li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1640/Web-Development.aspx">Web Development<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/12076/ASP-NET.aspx">ASP.NET</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1580227/CSS.aspx">CSS</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1580226/Javascript.aspx">Javascript</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1213656/PHP.aspx">PHP</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left: 30px;" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Site Bugs / Suggestions</a>
+</li>
+
+
+		<li class="heading">Other Languages<span class="fly-menu">&gt;</span>
+		<ul>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580229/Hindi.aspx">General Indian Topics</a></li>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580230/Chinese.aspx">General Chinese Topics</a></li>
+		</ul></li>
+	
+	</ul>
+
+</li>
+
+
+<li><a id="ctl00_TopNavBar_Zones" href="http://www.codeproject.com/Zones/index.aspx">Learning Zones</a>
+
+	<ul>
+		<!--<li class="heading">Zones</li>-->
+		<li><a href="http://www.codeproject.com/Zones/Commerce/" class="fly">The Commerce Zone</a></li><li><a href="http://www.codeproject.com/Zones/Mobile/" class="fly">The Mobile Zone</a></li><li><a href="http://www.codeproject.com/Zones/Cloud/" class="fly">The Cloud Zone</a></li><li><a href="http://www.codeproject.com/Zones/Hardware/" class="fly">The Hardware Zone</a></li><li><a href="http://www.codeproject.com/Zones/Parallelism/" class="fly">The Parallelism Zone</a></li><li><a href="http://www.codeproject.com/Zones/SqlServer/" class="fly">The SQL Zone</a></li><li><a href="http://www.codeproject.com/Zones/WhitePapers/" class="fly">WhitePapers / Webcasts</a></li>
+	</ul>
+
+</li>
+
+
+
+<li><a id="ctl00_TopNavBar_Job" href="http://www.codeproject.com/script/Jobs/List.aspx">Jobs</a>
+	<ul>
+		<li><a id="ctl00_TopNavBar_JobLatest" class="fly" href="http://www.codeproject.com/script/Jobs/List.aspx">Latest</a></li>
+		<li><a id="ctl00_TopNavBar_JobSearch" class="fly" href="http://www.codeproject.com/script/Jobs/Search.aspx">Search</a></li>
+		<li></li>
+		<li><a id="ctl00_TopNavBar_JobFaq" class="fly last" href="http://www.codeproject.com/KB/FAQs/JobBoardFAQ.aspx">FAQ and Pricing</a></li>
+	</ul>
+
+</li>
+
+
+
+
+
+
+
+
+<li><a id="ctl00_TopNavBar_Community">Features</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_WhosWho" class="fly" href="http://www.codeproject.com/script/Membership/Profiles.aspx">Who's Who</a></li>
+		<li><a id="ctl00_TopNavBar_MVPs" class="fly" href="http://www.codeproject.com/script/Awards/MVPWinners.aspx">CodeProject MVPs</a></li>
+		<li><a id="ctl00_TopNavBar_Companies" class="fly break" href="http://www.codeproject.com/script/Membership/Profiles.aspx?mgtid=1&amp;mgm=True">Company Listings</a></li>
+		<li><a id="ctl00_TopNavBar_Catalog" class="fly" href="http://www.codeproject.com/script/Catalog/List.aspx">Component &amp; Service Catalog</a></li>
+		<li><a id="ctl00_TopNavBar_Comps" class="fly" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1&amp;awsac=true">Competitions</a></li>
+		<li><a id="ctl00_TopNavBar_News" class="fly" href="http://www.codeproject.com/script/News/List.aspx">News</a></li>
+		<li><a id="ctl00_TopNavBar_Newsletters" class="fly" href="http://www.codeproject.com/script/Mailouts/Archive.aspx?mtpid=1">Newsletter archive</a></li>
+		<li><a id="ctl00_TopNavBar_PressRelease" class="fly" href="http://www.codeproject.com/script/PressReleases/Preview.aspx">Press Releases</a></li>
+		<li><a id="ctl00_TopNavBar_Surveys" class="fly" href="http://www.codeproject.com/script/Surveys/List.aspx">Surveys</a></li>
+		<li><a id="ctl00_TopNavBar_Stuff" class="fly" href="http://www.codeproject.com/Info/Stuff.aspx">CodeProject Stuff</a></li>
+		<li><a id="ctl00_TopNavBar_AddIn" class="fly last" href="http://www.codeproject.com/Services/Addins/">CodeProject VS Addin </a></li>
+	</ul>
+
+</li>
+
+
+<li><a id="ctl00_TopNavBar_Help" href="http://www.codeproject.com/KB/FAQs/">Help!</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_HelpWhatIs" class="fly" href="http://www.codeproject.com/info/guide.aspx">What is 'The Code Project'?</a></li>
+		<li><a id="ctl00_TopNavBar_HelpGeneral" class="fly" href="http://www.codeproject.com/KB/FAQs/">General FAQ</a></li>
+		<li><a id="ctl00_TopNavBar_HelpPostQuestion" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Post a Question</a></li>
+		<li><a id="ctl00_TopNavBar_HelpBugs" class="fly" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Bugs and Suggestions</a></li>
+		<li><a id="ctl00_TopNavBar_HelpSiteMap" class="fly" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Site Directory</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAdvertise" class="fly" href="http://www.codeproject.com/info/MediaKit.aspx">Advertise with us</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAboutUs" class="fly last" href="http://www.codeproject.com/info/about.aspx">About Us</a></li>
+	</ul>
+
+</li>
+
+
+<li style="margin-left: 10px;">
+<a id="ctl00_TopNavBar_Lounge" class="simple" href="http://www.codeproject.com/Lounge.aspx">The Lounge</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_LoungeLnk" class="fly" href="http://www.codeproject.com/Lounge.aspx">The Lounge &nbsp;</a></li>
+		<li><a id="ctl00_TopNavBar_CleverLnk" class="fly" href="http://www.codeproject.com/feature/CleverCode.aspx">Clever Code</a></li>
+		<li><a id="ctl00_TopNavBar_ShameLnk" class="fly" href="http://www.codeproject.com/feature/HallOfSHame.aspx">Hall of Shame</a></li>
+		<li><a id="ctl00_TopNavBar_SoapBoxLnk" class="fly" href="http://www.codeproject.com/Forums/1536756/The-Soapbox-2-0.aspx">The Soapbox</a></li>
+		
+	</ul>
+
+</li>
+
+</ul>
+
+</div>
+
+<script type="text/javascript">
+function PopulateMap(prnt, elmId, width, height) {
+	var map;
+	if (!prnt.populated && !prnt.populating) {
+		prnt.populating = true;
+		map = $('#' + elmId);
+		map.css('height', '400px');
+		map.css('width', '400px');
+		map.load("/script/content/ajax/SiteMap.aspx", function () {
+			if (height) map.css('height', height); else map.css('height', 'auto');
+			prnt.populated = true;
+		});
+		prnt.populating = false;
+	}
+	if (prnt.populated) {
+		map = map||$('#' + elmId);
+		var defWidth = ($(window).width() * 0.9);
+		if (defWidth > 1000) defWidth = 1000;
+		if (width) map.css('width', width); else map.css('width', defWidth+'px');
+	}
+}
+</script>
+</td><td align="right">
+	
+
+<div class="search-bar">
+
+<form method="get" action="/info/search.aspx" name="Search" class="tight">
+
+
+<input class="search  subdue" id="sb_tb" value="Search" name="artkw">
+
+<div class="hover-container">
+	<div style="display: none;" id="SearchFilter" class="search-advanced small-text align-left">
+	<b>Search within:<br></b>
+		
+		<input id="sb_kw" name="sbo" value="kw" checked="checked" type="radio"><label for="sb_kw">Articles</label><br>
+<input id="sb_qa" name="sbo" value="qa" type="radio"><label for="sb_qa">Quick Answers</label><br>
+<input id="sb_fm" name="sbo" value="fm" type="radio"><label for="sb_fm">Messages</label><br>
+<input id="sb_s" name="sbo" value="s" type="radio"><label for="sb_s">Jobs</label><br>
+<input id="sb_ctlk" name="sbo" value="ctlk" type="radio"><label for="sb_ctlk">Product Catalog</label><br>
+
+
+		
+		
+	</div>
+</div>
+</form>
+
+</div>
+</td></tr></tbody></table>
+
+
+
+
+
+<div class="page-background">
+<div id="AW" class="container-article-wrap"><a name="Main"></a>
+
+
+<div id="A" class="container-article">
+
+	
+	
+
+	
+
+		<div class="tight clearfix tab-wrapper">
+
+			
+			<div class="float-right">
+				<div id="ctl00_CurRat" class="tooltip" name="CurRat_52308">
+					
+<table class="">
+<tbody><tr>
+	
+	<td><table class="rating-bar" border="0" cellpadding="0" cellspacing="0">
+	<tbody><tr>
+		<td align="left" bgcolor="White" height="7px" width="15px"><img src="RxByExample.aspx_elemei/red.gif" align="middle" border="0" height="7" width="15"></td>
+		<td align="left" bgcolor="White" height="7px" width="15px"><img src="RxByExample.aspx_elemei/red.gif" align="middle" border="0" height="7" width="15"></td>
+		<td align="left" bgcolor="White" height="7px" width="15px"><img src="RxByExample.aspx_elemei/red.gif" align="middle" border="0" height="7" width="15"></td>
+		<td align="left" bgcolor="White" height="7px" width="15px"><img src="RxByExample.aspx_elemei/red.gif" align="middle" border="0" height="7" width="15"></td>
+		<td style="white-space: nowrap; padding: 0px;" align="left" bgcolor="White" height="7px" width="15px"><img src="RxByExample.aspx_elemei/red.gif" align="middle" border="0" height="7" width="13"><img src="RxByExample.aspx_elemei/white.gif" align="middle" border="0" height="7" width="2"></td>
+	</tr>
+</tbody></table>
+</td>
+	<td id="ctl00_ArticleRating_VR" class="nowrap">
+		<span id="ctl00_ArticleRating_VotesR"><b>4.87 / 5</b>, 34 votes</span>
+		
+	</td>
+
+</tr>
+
+</tbody></table>
+
+					<div id="ctl00_RB" class="speech-bubble-container-up">
+						<div class="speech-bubble-up" style="width: 150px ! important;">
+							            
+<div>
+<table class="feature" title="Voting Distribution. Recent data only" cellpadding="0" cellspacing="0"><tbody><tr><td class="chart-column"><img src="RxByExample.aspx_elemei/t_002.gif" alt="" title="" border="0px" height="1px" width="16px"><br><span title="0 votes">1</span></td>
+<td class="chart-column"><img src="RxByExample.aspx_elemei/t_002.gif" alt="" title="" border="0px" height="1px" width="16px"><br><span title="0 votes">2</span></td>
+<td class="chart-column"><img src="RxByExample.aspx_elemei/pollcol.gif" alt="3 votes, 8.8%" title="3 votes, 8.8%" border="0px" height="5px" width="16px"><br><span title="3 votes">3</span></td>
+<td class="chart-column"><img src="RxByExample.aspx_elemei/pollcol.gif" alt="1 vote, 2.9%" title="1 vote, 2.9%" border="0px" height="1px" width="16px"><br><span title="1 vote">4</span></td>
+<td class="chart-column"><img src="RxByExample.aspx_elemei/pollcol.gif" alt="30 votes, 88.2%" title="30 votes, 88.2%" border="0px" height="50px" width="16px"><br><span title="30 votes">5</span></td>
+</tr></tbody></table>
+</div>
+
+
+
+
+						</div>
+						<div class="speech-bubble-pointer-up">
+							<div class="speech-bubble-pointer-up-inner"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+			<div class="float-right" style="margin-right: 35px;"> 
+				<a id="ctl00_ActionLinks_PrintLnk" class="tooltip" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?display=Print">
+	<img src="RxByExample.aspx_elemei/print.gif" style="vertical-align: middle; border: 0pt none;" height="24px" width="24px">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Print Article</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+
+	
+
+
+<span id="SBI"><img src="RxByExample.aspx_elemei/share_drop24.gif" id="ctl00_ActionLinks_AddTo_Img" alt="add" style="vertical-align: middle;" height="24" width="37"></span>
+<div style="left: 583.5px; top: 23.5px;" id="ATD" class="list-socialbookmark"><div><a class="AddTo" title="Add this page to Twitter" onclick="return socialLinks.addto(0);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Twitter.gif" align="absmiddle" border="0" height="16px" width="16px"> Twitter</a> </div><div><a class="AddTo" title="Add this page to Digg" onclick="return socialLinks.addto(1);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Digg.png" align="absmiddle" border="0" height="16px" width="16px"> Digg</a> </div><div><a class="AddTo" title="Add this page to Facebook" onclick="return socialLinks.addto(2);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Facebook.png" align="absmiddle" border="0" height="16px" width="16px"> Facebook</a> </div><div><a class="AddTo" title="Add this page to Del.icio.us" onclick="return socialLinks.addto(3);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Delicious.png" align="absmiddle" border="0" height="16px" width="16px"> Del.icio.us</a> </div><div><a class="AddTo" title="Add this page to Reddit" onclick="return socialLinks.addto(4);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Reddit.png" align="absmiddle" border="0" height="16px" width="16px"> Reddit</a> </div><div><a class="AddTo" title="Add this page to Stumbleupon" onclick="return socialLinks.addto(5);" href="#"><img src="RxByExample.aspx_elemei/AddTo_stumbleupon.png" align="absmiddle" border="0" height="16px" width="16px"> Stumbleupon</a> </div><div><a class="AddTo" title="Add this page to Newsvine" onclick="return socialLinks.addto(6);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Newsvine.png" align="absmiddle" border="0" height="16px" width="16px"> Newsvine</a> </div><div><a class="AddTo" title="Add this page to Technorati" onclick="return socialLinks.addto(7);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Technorati.png" align="absmiddle" border="0" height="16px" width="16px"> Technorati</a> </div><div><a class="AddTo" title="Add this page to Mr. Wong" onclick="return socialLinks.addto(8);" href="#"><img src="RxByExample.aspx_elemei/AddTo_MrWong.png" align="absmiddle" border="0" height="16px" width="16px"> Mr. Wong</a> </div><div><a class="AddTo" title="Add this page to Yahoo!" onclick="return socialLinks.addto(9);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Yahoo.png" align="absmiddle" border="0" height="16px" width="16px"> Yahoo!</a> </div><div><a class="AddTo" title="Add this page to Google" onclick="return socialLinks.addto(10);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Google.png" align="absmiddle" border="0" height="16px" width="16px"> Google</a> </div><div><a class="AddTo" title="Add this page to Windows Live" onclick="return socialLinks.addto(11);" href="#"><img src="RxByExample.aspx_elemei/AddTo_Live.png" align="absmiddle" border="0" height="16px" width="16px"> Windows Live</a> </div><div><a class="AddTo" title="Send as Email" onclick="return socialLinks.addto(12);" href="#"><img src="RxByExample.aspx_elemei/envelope.gif" align="absmiddle" border="0" height="16px" width="16px"> Send as Email</a> </div></div>
+ 
+
+ 
+
+<span class="tooltip">
+	<a id="ctl00_ActionLinks_ArticleBmk_ImgBt" title="Bookmark" alternatetext="Bookmark" name="bm_52308_2" onclick="return bookmarkMe(52308, 2, '/script/Bookmarks/Ajax/Add.aspx?obid=52308&amp;obtid=2&amp;action=AddBookmark');" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=52308&amp;obtid=2&amp;action=AddBookmark" style="display: inline-block; height: 24px; width: 24px; vertical-align: middle; border: 0pt none;"><img title="Bookmark" src="RxByExample.aspx_elemei/bookmark.png" alt="" style="border-width: 0px;"></a>
+
+
+<span id="ctl00_ActionLinks_ArticleBmk_StatusMsg" class="tiny-text" style="display: none;" name="bm_52308_2"></span>
+ 
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Add to your CodeProject bookmarks</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</span>
+
+<a href="#_comments" class="tooltip">
+	
+	<img src="RxByExample.aspx_elemei/discuss.gif" alt="Discuss" style="vertical-align: middle; border: 0pt none;" height="24px" width="24px">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Discuss this article</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+<span id="ctl00_ActionLinks_cmtcnt" class="subdue small-text" style="margin-left: -4px;">15</span>
+
+<a id="ctl00_ActionLinks_BrokenLnk" class="tooltip" href="http://www.codeproject.com/script/Articles/Report.aspx?aid=52308">
+	<img src="RxByExample.aspx_elemei/report.gif" alt="Broken Article?" style="vertical-align: middle; border: 0pt none;" height="24px" width="24px">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Report this article as inappropriate</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+			</div>
+
+			
+			
+
+<div class="float-left"><table cellpadding="0" cellspacing="0"><tbody><tr>
+	<td class="tab-selected">Article</td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=52308">Browse Code</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/Statistics.aspx?aid=52308">Stats</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ListVersions.aspx?aid=52308">Revisions (8)</a></td>
+</tr></tbody></table></div>	
+
+
+		</div>
+
+		
+		<a name="_top"></a>
+		<div id="ctl00_TitleArea_InfoArea" class="nav-right-sidebar">
+	
+
+<div class="announce-content">
+	<table class="tight small-text">
+	
+	<tbody><tr><td>First Posted</td><td nowrap="nowrap"><b>14 Jan 2010</b></td></tr>
+	<tr><td>Views</td><td><b>12,463</b></td></tr>
+	
+	<tr><td>Bookmarked</td><td><b>74 times</b></td></tr>
+	
+	
+	
+	
+	<tr><td>Licence</td><td><a href="http://www.codeproject.com/info/cpol10.aspx" title="The Code Project Open License (CPOL)">CPOL</a></td></tr>
+	<tr><td colspan="2">
+	
+
+<div id="ctl00_TitleArea_InfoBox_TagsList_TagWrp" class="tags">
+
+<span id="ctl00_TitleArea_InfoBox_TagsList_TagLabel" class="bold"></span>
+
+<span id="ctl00_TitleArea_InfoBox_TagsList_VisibleTags"><a href="http://www.codeproject.com/info/search.aspx?aidlst=69">C#3.0</a>, <a href="http://www.codeproject.com/info/search.aspx?aidlst=81">C#</a>, <a href="http://www.codeproject.com/info/search.aspx?aidlst=153">Intermediate</a></span>
+
+
+</div>
+
+	</td></tr>
+	</tbody></table>
+</div>
+
+	
+</div>
+
+
+<div class="float-right pad-top"><a id="ctl00_TitleArea_PageWidth_Fixed" title="Fixed width layout" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?PageFlow=FixedWidth"><img class="toolbar" src="RxByExample.aspx_elemei/fixed-width.gif" style="width: 18px; height: 18px;"></a>
+
+<a id="ctl00_TitleArea_PageWidth_Fluid" title="Fluid layout" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?PageFlow=Fluid"><img class="toolbar" src="RxByExample.aspx_elemei/fluid-width.gif" style="width: 18px; height: 18px;"></a></div>
+
+
+<div class="breadcrumb"><a href="http://www.codeproject.com/script/Content/SiteMap.aspx"><span class="sitemap-anchor" onmouseover="PopulateMap(this,'map');"><img src="RxByExample.aspx_elemei/sitemap16.png" alt="Site map" style="vertical-align: middle;" border="0" height="16px" width="16px"><div id="map"><img src="RxByExample.aspx_elemei/animated.gif" style="margin: 150px; width: 100px; height: 100px; border: 0pt none;"></div></span></a> » <a href="http://www.codeproject.com/Chapters/6/General-Programming.aspx">General Programming</a> » <a href="http://www.codeproject.com/KB/Parallel_Programming/">Parallel Programming</a> » <a href="http://www.codeproject.com/KB/Parallel_Programming/#Reactive%20Extensions%20for%20.NET%20%28Rx%29">Reactive Extensions for .NET (Rx)</a></div>
+
+
+<h1 id="ctl00_TitleArea_ArticleTitle">The Rx Framework By Example</h1>
+
+
+<div class="author">By <b><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></b> |
+7 Feb 2010 
+
+
+
+
+
+
+</div>
+
+
+<div class="abstract"><span id="ctl00_TitleArea_ArticleDescr">An introduction to the Reactive Framework using some practical examples</span></div>
+
+
+
+
+	
+	
+	
+	
+
+	
+
+	<div id="ctl00_confirmError" class="Callout small-text" style="padding: 10px; margin: 20px;"><img style="float: left; margin-right: 10px;" src="RxByExample.aspx_elemei/warning_32.png" height="32px" width="32px"><b>Is your email address OK?</b>
+		You are signed up for our newsletters but your email address is either unconfirmed, or has not 
+		been reconfirmed in a long time. Please click 
+		<a id="ctl00_RequestConfirmLink2" href="http://www.codeproject.com/script/Membership/SendConfirmRequest.aspx?rp=%2fKB%2fParallel_Programming%2fRxByExample.aspx">here</a> to have a 
+		confirmation email sent so we can confirm your email address and start sending you newsletters 
+		again. Alternatively, you can 
+		<a id="ctl00_SubscribeLink2" href="http://www.codeproject.com/script/Membership/Subscribe.aspx?rp=%2fKB%2fParallel_Programming%2fRxByExample.aspx">update your subscriptions</a>.</div><form name="aspnetForm" method="post" action="/KB/Parallel_Programming/RxByExample.aspx" id="aspnetForm" style="margin: 0pt; padding: 0pt;">
+<div>
+<input name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTAyMTMzODg1Ng9kFgJmD2QWAgIJD2QWAgIBD2QWBAIDD2QWAgIBD2QWBmYPDxYCHgtOYXZpZ2F0ZVVybAU3L0tCL1BhcmFsbGVsX1Byb2dyYW1taW5nL1J4QnlFeGFtcGxlLmFzcHg/ZGlzcGxheT1QcmludGRkAgQPFgIeCWlubmVyaHRtbAUCMTVkAgUPDxYCHwAFJi9zY3JpcHQvQXJ0aWNsZXMvUmVwb3J0LmFzcHg/YWlkPTUyMzA4ZGQCDQ9kFgoCAg8WAh4HVmlzaWJsZWcWBAIBDw8WAh8ABV0vc2NyaXB0L01lbWJlcnNoaXAvU2VuZENvbmZpcm1SZXF1ZXN0LmFzcHg/cnA9JTJmS0IlMmZQYXJhbGxlbF9Qcm9ncmFtbWluZyUyZlJ4QnlFeGFtcGxlLmFzcHhkZAIDDw8WAh8ABVQvc2NyaXB0L01lbWJlcnNoaXAvU3Vic2NyaWJlLmFzcHg/cnA9JTJmS0IlMmZQYXJhbGxlbF9Qcm9ncmFtbWluZyUyZlJ4QnlFeGFtcGxlLmFzcHhkZAIDDxYCHgZhY3Rpb24FKS9LQi9QYXJhbGxlbF9Qcm9ncmFtbWluZy9SeEJ5RXhhbXBsZS5hc3B4FgQCAw9kFgICAg9kFgICAQ8QZGQWAGQCCQ8WAh4LXyFJdGVtQ291bnQCAWQCCw8PFgIfAAUpL0tCL1BhcmFsbGVsX1Byb2dyYW1taW5nL1J4QnlFeGFtcGxlLmFzcHhkZAIRDxYCHgRUZXh0BQo3IEZlYiAyMDEwZAIVDxYCHwUFIENvcHlyaWdodCAyMDEwIGJ5IFBoaWwgTWFydGluLi4uZGS0pDa4aA0z3MJgTBfYTkHQPKWRdw==" type="hidden">
+</div>
+
+<div>
+
+	<input name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWCAKksIsbAsCUxcMHAsGUxcMHAsKUxcMHAsOUxcMHAsSUxcMHAs/7760LArm6kOQLbK6q6JbgKMYCPuMI6FceU/76pI4=" type="hidden">
+</div>
+
+			<!-- Main Page Contents Start -->
+			<div id="contentdiv">
+			
+
+<!-- Article Starts -->
+
+
+<ul class="download">
+<li><a href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample/RxByExample_src.zip">Download source - 41.11 KB</a> </li>
+
+<li><a href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample/RxByExample_demo.zip">Download demo - 285.69 KB</a> </li>
+</ul>
+<img alt="Rx Framework Logo" src="RxByExample.aspx_elemei/ee794896.png" complete="true" border="0" height="119" hspace="0" width="498"> 
+<h2>Introduction</h2>
+
+<p>The <a href="http://msdn.microsoft.com/en-us/devlabs/ee794896.aspx">Rx Framework</a> is a very interesting and useful library recently released via <a href="http://msdn.microsoft.com/en-us/devlabs/default.aspx">DevLabs</a>. The purpose of the framework is to provide a large framework for working with the <a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer</a>
+ pattern. That is a nice academic description, but it is hardly enough 
+to start using it immediately. So let us dig a little depper.</p>
+
+<p>This article is to provide an introduction to the Rx Framework by 
+example, not by description. I don't go into any detail about internal 
+behaviour, but I hope to cover that in an up and coming article. I find 
+when learning something completely new, working examples provide me with
+ enough information to get started and put me in a position to learn 
+more.</p>
+
+<h2>Background</h2>
+
+<p>All of the information presented here is either summarised or derived from the excellent video and text blog posts on <a href="http://channel9.msdn.com/">Channel 9</a>. I highly recommend this as a learning resource for all developers out there.</p>
+
+<p>For this article, it is assumed that the reader has a working knowledge of the Observer pattern.</p>
+
+<p>This article's code was written against version 1.0.2.0 of <code>System.Reactive</code>.</p>
+
+<p>It would also help to watch the <a href="http://channel9.msdn.com/posts/Charles/Erik-Meijer-Rx-in-15-Minutes/">Rx Framework introductory video</a> on Channel 9.</p>
+
+<h2>IObservable&lt;T&gt;</h2>
+
+<p>The centrepiece of the Rx framework is the observable pattern, defined by the <a href="http://msdn.microsoft.com/en-us/library/dd990377%28VS.100%29.aspx">IObservable&lt;T&gt;</a> interface. It provides just a single method to subscribe to the observable using an instance of an object implementing the <code>IObserver<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code> interface.</p>
+
+<p>The interesting connect that the developers of the Rx Framework made is that <code>IObservable<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code> is the mathematical dual to the <code>IEnumerable<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code> interface. This is explained excellently in <a href="http://channel9.msdn.com/posts/Charles/Erik-Meijer-Rx-in-15-Minutes/">this video</a>, but the summary is that <code>IEnumerable<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code> pulls elements from a sequence, and <code>IObservable<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code> pushes elements from a sequence.</p>
+
+<h2>What Can I Do With This?</h2>
+
+<p>The part I found the most challenging is what problems to solve with 
+it. It seemed like a very large hammer looking for problems. While it 
+doesn't solve problems that were unsolvable, I think it does offer new 
+and interesting ways to approach existing problems, and sometimes solve 
+them in an easier to write and easier to maintain way.</p>
+
+<p>The framework provides built in threading support and control to let collections be observed in background threads.</p>
+
+<h2>Getting the Directory Tree</h2>
+
+<p>One well known task when working with disks is getting the list of directories in a tree in a UI application.</p>
+<img style="width: 385px; height: 455px;" src="RxByExample.aspx_elemei/DirectoriesScreenshot.png" complete="true" border="0" height="455" hspace="0" width="385"> 
+<p>The code for this example is in the <code>Directories </code>project.</p>
+
+<p>Consider this <code>IEnumerable<span class="code-keyword">&lt;</span><span class="code-SDKkeyword">string</span><span class="code-keyword">&gt;</span></code> result:</p>
+
+<div style="display: block;" width="100%" id="premain0" class="small-text align-right"><img preid="0" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg0" height="9" width="9"><span preid="0" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse0"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre0" lang="cs">    <span class="code-keyword">static</span> IEnumerable&lt;string&gt; GetAllDirectories(<span class="code-keyword">string</span> path)
+    {
+      <span class="code-keyword">string</span>[] subdirs = <span class="code-keyword">null</span>;
+
+      <span class="code-comment">//</span><span class="code-comment"> Some directories may be inaccessible.
+</span>      <span class="code-keyword">try</span>
+      {
+        subdirs = Directory.GetDirectories(path);
+      }
+      <span class="code-keyword">catch</span> (IOException)
+      {
+      }
+
+      <span class="code-keyword">if</span> (subdirs != <span class="code-keyword">null</span>)
+      {
+        <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> subdir <span class="code-keyword">in</span> subdirs)
+        {
+          <span class="code-keyword">yield</span> <span class="code-keyword">return</span> subdir;
+
+          <span class="code-keyword">foreach</span> (<span class="code-keyword">var</span> grandchild <span class="code-keyword">in</span> GetAllDirectories(subdir))
+          {
+            <span class="code-keyword">yield</span> <span class="code-keyword">return</span> grandchild;
+          }
+        }
+      }
+    }</pre>
+
+<p>You can subscribe to this in an asynchronous fashion using:</p>
+
+<div style="display: block;" width="100%" id="premain1" class="small-text align-right"><img preid="1" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg1" height="9" width="9"><span preid="1" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse1"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre1" lang="cs"><span class="code-keyword">var</span> observable = Observable.ToObservable(GetAllDirectories(<span class="code-string">@"</span><span class="code-string">c:\"</span>));
+observable.Subscribe(outputDirectory);	</pre>
+
+<p>with <code>outputDirectory </code>being an <code>Action<span class="code-keyword">&lt;</span><span class="code-SDKkeyword">string</span><span class="code-keyword">&gt;</span></code>.
+ This delegate is called on the reactive framework thread context, so 
+that means it will not work directly when calling methods on Winforms 
+objects. You can use the normal <code>Control.Invoke() </code>approach to solving this, or alternatively you can do this:</p>
+
+<div style="display: block;" width="100%" id="premain2" class="small-text align-right"><img preid="2" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg2" height="9" width="9"><span preid="2" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse2"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre2" lang="cs"><span class="code-keyword">var</span> observable = Observable.ToObservable(GetAllDirectories(<span class="code-string">@"</span><span class="code-string">c:\"</span>)).ObserveOn(<span class="code-keyword">this</span>);
+observable.Subscribe(outputDirectory);</pre>
+
+<p>This will ensure that all calls to <code>outputAction </code>are made on the same thread that created <code>myWinformsControl</code>.</p>
+
+<p>Now the downside to this is that a high frequency of individual calls
+ to Winforms updates can cause a stuttering user interface. One solution
+ to this is to buffer the strings produced by the observer. The Reactive
+ Framework can buffer in two ways, either by quantity or over time. 
+Since frequency is the issue, we will be buffering using time.</p>
+
+<div style="display: block;" width="100%" id="premain3" class="small-text align-right"><img preid="3" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg3" height="9" width="9"><span preid="3" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse3"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre3" lang="cs"><span class="code-keyword">var</span> observable = 
+Observable.ToObservable(GetAllDirectories(<span class="code-string">@"</span><span class="code-string">c:\"</span>))
+        .BufferWithTime(TimeSpan.FromSeconds(<span class="code-digit">1</span>))
+        .ObserveOn(<span class="code-keyword">this</span>);
+
+observable.Subscribe(outputDirectories);</pre>
+
+<p>This will buffer until one second has elapsed, and then call <code>getDirectories</code>, which is an <code>Action<span class="code-keyword">&lt;</span>IEnumerable<span class="code-keyword">&lt;</span><span class="code-SDKkeyword">string</span><span class="code-keyword">&gt;</span><span class="code-keyword">&gt;</span></code>.</p>
+
+<p>The last piece is stopping the reading of directories. Each time the <code>Subscribe </code>method is called, it returns an <code>IDisposable </code>that can be used to unsubscribe from the observer. We can use this to stop the reading, like this:</p>
+
+<div style="display: block;" width="100%" id="premain4" class="small-text align-right"><img preid="4" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg4" height="9" width="9"><span preid="4" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse4"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre4" lang="cs">IDisposable observer = observable.Subscribe(outputDirectories)
+      ...
+observer.Dispose() </pre>
+
+<h2>User Interface Interaction</h2>
+<img style="width: 300px; height: 300px;" src="RxByExample.aspx_elemei/DrawingApplicationScreenshot.png" complete="true"> 
+<p>Many applications I work on have an interactive aspect to them, such 
+as drawing or modifying a 2D view of objects. The most common tasks in 
+this environment are selecting, drawing and modifying objects. The core 
+part of these behaviours is mouse interaction, particularly combining 
+mouse buttons and movement into dragging operations.</p>
+
+<p>The challenging part of these is tracking mouse button and movement 
+state so position deltas can be calculated across mouse events. While 
+doing that work isn't challenging, the hard part is arriving at a clean 
+design. One typically ends up with a number of boolean variables 
+tracking if things are being dragged, were just dragging, if things have
+ moved at least 3 pixels, and any number of other combinations.</p>
+
+<p>While I have not used the reactive framework in a production 
+environment to address these issues, it has some promise and is at the 
+very least academically interesting, and does show some other aspects of
+ the Rx framework.</p>
+
+<p>The example showing these techniques is in the <code>DrawingApplication </code>project. It is a very simple line drawing mini-application. It lets you draw and move lines on the screen.</p>
+
+<h3>Observing Events</h3>
+
+<p>The first step is to set up the events as <code>IObservables</code>. </p>
+
+<div style="display: block;" width="100%" id="premain5" class="small-text align-right"><img preid="5" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg5" height="9" width="9"><span preid="5" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse5"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre5" lang="cs"><span class="code-keyword">var</span> movingEvents = Observable.FromEvent&lt;MouseEventHandler, 
+	MouseEventArgs&gt;(handler =&gt; ConvertHandler(handler), 
+	h =&gt; <span class="code-keyword">this</span>.MouseMove += h, h =&gt; <span class="code-keyword">this</span>.MouseMove -= h);
+<span class="code-keyword">var</span> upEvents = Observable.FromEvent&lt;MouseEventHandler, 
+	MouseEventArgs&gt;(handler =&gt; ConvertHandler(handler), 
+	h =&gt; <span class="code-keyword">this</span>.MouseUp += h, h =&gt; <span class="code-keyword">this</span>.MouseUp -= h);
+<span class="code-keyword">var</span> downEvents = Observable.FromEvent&lt;MouseEventHandler, 
+	MouseEventArgs&gt;(handler =&gt; ConvertHandler(handler), 
+	h =&gt; <span class="code-keyword">this</span>.MouseDown += h, h =&gt; <span class="code-keyword">this</span>.MouseDown -= h);</pre>
+
+<p>This sets up the three <code>IObservable<span class="code-keyword">&lt;</span>IEvent<span class="code-keyword">&lt;</span>MouseEventArgs<span class="code-keyword">&gt;</span><span class="code-keyword">&gt;</span> </code>instances, <code>movingEvents</code>, <code>upEvents </code>and <code>downEvents</code>. Each time that mouse interaction occurs, any observers will be notified.</p>
+
+<p>There are many things we can do from here.</p>
+
+<h3>Identifying Mouse Moved between Mouse Downs and Mouse Ups</h3>
+
+<div style="display: block;" width="100%" id="premain6" class="small-text align-right"><img preid="6" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg6" height="9" width="9"><span preid="6" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse6"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre6" lang="cs"><span class="code-keyword">var</span> draggingEvents = movingEvents.WaitUntil(downEvents).Until(upEvents);</pre>
+
+<p>Now the trouble with this is that the <code>draggingEvents </code>observable
+ is a once-off. That means as soon as the mouse button is released, the 
+observable will no longer produce elements. The solution for this is to 
+use the <code>Repeat() </code>extension method.</p>
+
+<div style="display: block;" width="100%" id="premain7" class="small-text align-right"><img preid="7" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg7" height="9" width="9"><span preid="7" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse7"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre7" lang="cs"><span class="code-keyword">var</span> draggingEvents = 
+		movingEvents.WaitUntil(downEvents).Until(upEvents).Repeat();</pre>
+
+<h3>Picking Out Left Mouse Clicks</h3>
+
+<div style="display: block;" width="100%" id="premain8" class="small-text align-right"><img preid="8" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg8" height="9" width="9"><span preid="8" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse8"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre8" lang="cs"><span class="code-keyword">var</span> leftClicks = from e <span class="code-keyword">in</span> downEvents 
+                 where e.EventArgs.Button == MouseButtons.Left 
+                 select e;
+
+leftClicks.Subscribe(...);</pre>
+
+<p>This also demonstrates that you can use LINQ query syntax to work with Observables.</p>
+
+<h3>Pairing Up Dragged Mouse Events</h3>
+
+<p>This is a common requirement when interacting with items on the 
+screen. You want a delta between pairs of mouse coordinates, or the 
+previous position and the current position, while the mouse is being 
+dragged. This is useful for panning the screen, moving selected items or
+ drawing items. Alternatively, this could be expressed as an actual pair
+ of Points rather than a delta.</p>
+
+<div style="display: block;" width="100%" id="premain9" class="small-text align-right"><img preid="9" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg9" height="9" width="9"><span preid="9" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse9"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre9" lang="cs"><span class="code-keyword">var</span> deltas = from pair <span class="code-keyword">in</span> movingEvents.Buffer(<span class="code-digit">2</span>)
+             let array = pair.ToArray()
+             let a = array[<span class="code-digit">0</span>].EventArgs.Location
+             let b = array[<span class="code-digit">1</span>].EventArgs.Location
+             select <span class="code-keyword">new</span> Size(b.X - a.X, b.Y - a.Y);
+
+<span class="code-keyword">var</span> dragDeltas = moveDeltas.WaitUntil(downEvents).Until(upEvents).Repeat();</pre>
+
+<p><code>dragDeltas </code>is an <code>IObservable </code>that provides consecutive mouse events paired together with the difference in position calculated. The call to <code>Observable.Buffer()</code>
+ doesn't split elements into separate pairs, but has each single mouse 
+move event appearing in two pairs, except for the first and last event 
+of course.</p>
+
+<h2>Combining Streams</h2>
+
+<p>The example applications for this are <code>ConsoleReader </code>and <code>ConsoleOutputter</code>.&nbsp;<code>ConsoleReader </code>is the parent process, and <code>ConsoleOutputter </code>represents the child process.</p>
+<img alt="Console Reader Screenshot" src="RxByExample.aspx_elemei/ConsoleReaderScreenshot.png" complete="true" border="0" height="325" hspace="0" width="636"> 
+<p>When working with external processes, the <code>stdout </code>and <code>stderr </code>messages
+ often need to be redirected and output to the main window. This can be a
+ challenge to get right because reading from a child process' standard 
+output and error stream is a blocking operation. The reactive framework 
+makes this easy.</p>
+
+<p>The first part is to represent a <code>StreamReader </code>as an <code>IEnumerable </code>to make it easy to work with the Reactive Framework.</p>
+
+<div style="display: block;" width="100%" id="premain10" class="small-text align-right"><img preid="10" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg10" height="9" width="9"><span preid="10" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse10"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre10" lang="cs">     <span class="code-keyword">private</span> <span class="code-keyword">static</span> IEnumerable&lt;string&gt; GetLineReader(StreamReader reader)
+    {
+      <span class="code-keyword">while</span> (reader.BaseStream.CanRead)
+      {
+        <span class="code-keyword">var</span> l = reader.ReadLine();
+        <span class="code-keyword">if</span> (l == <span class="code-keyword">null</span>)
+        {
+          <span class="code-keyword">break</span>;
+        }
+        <span class="code-keyword">yield</span> <span class="code-keyword">return</span> l;
+      }
+    }</pre>
+
+<p>The next part is to merge the standard and output streams into a single observable:</p>
+
+<div style="display: block;" width="100%" id="premain11" class="small-text align-right"><img preid="11" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg11" height="9" width="9"><span preid="11" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse11"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre11" lang="cs"><span class="code-keyword">var</span> process = Process.Start(info);
+
+<span class="code-keyword">var</span> childStdOut = GetLineReader(process.StandardOutput).ToObservable();
+<span class="code-keyword">var</span> childStdErr = GetLineReader(process.StandardError).ToObservable();
+
+Observable.Merge(childStdOut, childStdErr).Subscribe(LineOutputter);</pre>
+
+<p><code>LineOutputter </code>is an <code>Action<span class="code-keyword">&lt;</span><span class="code-SDKkeyword">string</span><span class="code-keyword">&gt;</span></code> delegate and is called for each line produced by <code>StandardOutput </code>and <code>StandardError </code>streams from the child process.</p>
+
+<h2>A Simple Image Viewing Application</h2>
+
+<p>The code for this example is in the <code>ImageViewer </code>project.</p>
+<img style="width: 628px; height: 383px;" src="RxByExample.aspx_elemei/ImageViewerScreenshot.png" complete="true"> 
+<p>Imagine a simple application where you could examine a directory, 
+show the image files in it, and then be able to click on the files to 
+show the image.</p>
+
+<p>This would have these main places of work:</p>
+
+<ul>
+<li>Finding the files in the directory </li>
+
+<li>Loading a thumbnail for each file </li>
+
+<li>Loading the selected image when it is clicked on </li>
+</ul>
+
+<p>For a responsive user interface, all three of these need to occur in a
+ background thread. The challenging part of this would be queuing things
+ in a simple and thread safe way, and communicating that between 
+threads. Here is a diagram showing the flow of actions and information 
+that needs to happen.</p>
+<img style="width: 634px; height: 157px;" alt="Chart showing the flow of data for the image viewer application" src="RxByExample.aspx_elemei/ImageViewerFlow.png" complete="true"> 
+<p>The interesting part is that when loading an image, we also have the opportunity to set a thumbnail on the image.</p>
+
+<h3>Subjects</h3>
+
+<p>A new concept we use in this example is the <code>ISubject<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code> interface, and its default implementation, <code>Subject<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code>.&nbsp; A <code>Subject<span class="code-keyword">&lt;</span>T<span class="code-keyword">&gt;</span></code>
+ provides an easy mechanism to set up some observers ahead of time, and 
+then provide those observers with other sequences we don't yet know 
+about. Consider it as a door, where you can watch for people coming 
+inside, but you don't really know where they are coming from.</p>
+
+<p>We use this for the thumbnail setting because thumbnails can come 
+from two sources - loading thumbnails based on the list of files, and 
+loading a thumbnail when viewing the complete image.</p>
+
+<h3>Chaining Subjects and OnComplete</h3>
+
+<p>One of the unexpected outcomes of using a Subject to observe an 
+observable was that it wasn't repeating. Consider these two snippets of 
+code:</p>
+
+<div style="display: block;" width="100%" id="premain12" class="small-text align-right"><img preid="12" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg12" height="9" width="9"><span preid="12" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse12"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre12" lang="cs">myObservable.Subscribe(mySubject)</pre>
+
+<p>and:</p>
+
+<div style="display: block;" width="100%" id="premain13" class="small-text align-right"><img preid="13" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg13" height="9" width="9"><span preid="13" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse13"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre13" lang="cs">myObservable.Subcribe(item =&gt; mySubject.OnNext(item))</pre>
+
+<p>They are similar such that the subject will receive notifications, but the key difference is that when <code>myObservable </code>calls <code>OnCompleted()</code>, the subject will also have its <code>OnCompleted()</code>
+ method called. This means that anything subscribed to the subject will 
+no longer send out notifications. Just something to be aware of.</p>
+
+<h3>To Publish or Not to Publish</h3>
+
+<p>In the first version of the article, this image viewer had some 
+severe memory problems. It would have wildly fluctuating memory usage 
+that was very indicative of a large number of memory allocations 
+occurring and then being garbage collected. The root cause ended up 
+being the way observables are evaluated using the query methods.</p>
+
+<p>I needed some help solving this problem, and the kind folks over at the <a href="http://social.msdn.microsoft.com/Forums/en/rx/threads">Rx Forums</a> explained things nicely. <a href="http://social.msdn.microsoft.com/Forums/en/rx/thread/f02a0bb4-179a-4c50-bd89-2fb04e4fff2e">Here is the thread</a> in question.</p>
+
+<p>When using a query on an observable, such as this:</p>
+
+<div style="display: block;" width="100%" id="premain14" class="small-text align-right"><img preid="14" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg14" height="9" width="9"><span preid="14" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse14"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre14" lang="cs">   <span class="code-keyword">var</span> images = from filename <span class="code-keyword">in</span> filenames 
+                select Image.FromFile(filenames)</pre>
+
+<p>It turns out that the <code>select </code>statement will be evaluated every time for each observer attached to images. When dealing with large <code>Disposable </code>objects such as <code>Images</code>, this is a significant problem.</p>
+
+<p>The solution is similar in concept to the <code>ToList()</code> extension method for <code>IEnumerable</code>, in this case it is <code>Publish()</code>. This forces the <code>select </code>statement to only be evaluated once per incoming item, rather than once per outgoing observer. Like so:</p>
+
+<div style="display: block;" width="100%" id="premain15" class="small-text align-right"><img preid="15" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg15" height="9" width="9"><span preid="15" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse15"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre15" lang="cs">   <span class="code-keyword">var</span> images = (from filename <span class="code-keyword">in</span> filenames 
+                 select Image.FromFile(filenames)).Publish()</pre>
+
+<h3>Setting Up the Chain of Observables</h3>
+
+<p>The code below shows the core of the image viewer form. This is where
+ we connect up all the observables on the various threads ready for the 
+filenames to be read in when the Find Images button is pressed.</p>
+
+<div style="display: block;" width="100%" id="premain16" class="small-text align-right"><img preid="16" style="cursor: pointer;" src="RxByExample.aspx_elemei/minus.gif" id="preimg16" height="9" width="9"><span preid="16" style="cursor: pointer; margin-bottom: 0pt;" id="precollapse16"> Collapse</span></div><pre style="margin-top: 0pt;" id="pre16" lang="cs"><span class="code-comment">//</span><span class="code-comment"> Create a subject to make it easy to listen for thumbnail images and 
+</span><span class="code-comment">//</span><span class="code-comment"> update them on the winforms thread.
+</span><span class="code-keyword">var</span> thumbnailSubject = <span class="code-keyword">new</span> Subject&lt;KeyValuePair&lt;ListViewItem, Image&gt;&gt;();
+
+<span class="code-comment">//</span><span class="code-comment"> Observes thumbnailSubject on the winforms thread and puts the thumbnail 
+</span><span class="code-comment">//</span><span class="code-comment"> into the image list and the listview.
+</span>thumbnailSubject.ObserveOn(<span class="code-keyword">this</span>).Subscribe(item =&gt;
+{
+  <span class="code-keyword">this</span>.imageList.Images.Add(item.Key.Text, item.Value);
+  item.Key.ImageKey = item.Key.Text;
+});
+
+<span class="code-comment">//</span><span class="code-comment"> We want to receive item notifications on a different thread, so we 
+</span><span class="code-comment">//</span><span class="code-comment"> make use of the Delay() method to place the observable sequence on 
+</span><span class="code-comment">//</span><span class="code-comment"> the Scheduler.Later pool.
+</span><span class="code-keyword">var</span> thumbnailLoader = from listItem <span class="code-keyword">in</span> itemObservable.Delay
+			(Scheduler.Later, TimeSpan.FromSeconds(<span class="code-digit">0</span>.<span class="code-digit">5</span>))
+                      let filename = listItem.Text
+                      let thumb = LoadThumbnail(filename)
+                      select MakePair(listItem, (Image)thumb);
+
+<span class="code-comment">//</span><span class="code-comment"> We can't just call thumbnailLoader.Subscribe(thumbnailSubject) 
+</span><span class="code-comment">//</span><span class="code-comment"> because when the thumbnailLaoder finishes it will call the 
+</span><span class="code-comment">//</span><span class="code-comment"> subjects OnComplete(), and that will stop our thumbnails loading 
+</span><span class="code-comment">//</span><span class="code-comment"> on a different directory.
+</span>thumbnailLoader.Subscribe(a =&gt; thumbnailSubject.OnNext(a));
+
+<span class="code-comment">//</span><span class="code-comment"> Create an observable based on the SelectedIndexChanged event on the list 
+</span><span class="code-comment">//</span><span class="code-comment"> view, and provide objects describing the selected item 
+</span><span class="code-comment">//</span><span class="code-comment"> and the filename for that item.
+</span><span class="code-comment">//</span><span class="code-comment">
+</span><span class="code-comment">//</span><span class="code-comment"> Using the Delay() at the end ensures that 
+</span><span class="code-comment">//</span><span class="code-comment"> the items provided will be on a different thread.
+</span><span class="code-keyword">var</span> selectedFilename = (from index <span class="code-keyword">in</span> Observable.FromEvent&lt;EventArgs&gt;
+			(<span class="code-keyword">this</span>.listViewThumbnails, <span class="code-string">"</span><span class="code-string">SelectedIndexChanged"</span>)
+                       where <span class="code-keyword">this</span>.listViewThumbnails.SelectedItems.Count &gt; <span class="code-digit">0</span>
+                       select <span class="code-keyword">new</span>
+                       {
+                         Item = <span class="code-keyword">this</span>.listViewThumbnails.SelectedItems[<span class="code-digit">0</span>],
+                         Filename = <span class="code-keyword">this</span>.listViewThumbnails.SelectedItems[<span class="code-digit">0</span>].Text
+                       }).Delay(Scheduler.Later, TimeSpan.FromMilliseconds(<span class="code-digit">10</span>));
+
+<span class="code-comment">//</span><span class="code-comment"> Transform the selectedFilename observable into one that 
+</span><span class="code-comment">//</span><span class="code-comment"> loads in images from the selectedFilename observable.
+</span><span class="code-keyword">var</span> selectedImage = (from item <span class="code-keyword">in</span> selectedFilename
+                    let filename = item.Filename
+                    let image = Image.FromFile(filename)
+                    let thumb = <span class="code-keyword">new</span> Bitmap(image, <span class="code-keyword">new</span> Size(<span class="code-digit">64</span>, <span class="code-digit">64</span>))
+                    select <span class="code-keyword">new</span>
+                    {
+                      Item = item.Item,
+                      Filename = item.Filename,
+                      Image = image,
+                      Thumb = thumb
+                    }).Publish();
+
+<span class="code-comment">//</span><span class="code-comment"> Observe the selectedImage and construct an object the thumbnailSubject understands
+</span><span class="code-keyword">var</span> selectedImageThumb = from item <span class="code-keyword">in</span> selectedImage
+                         select MakePair(item.Item, (Image)item.Thumb);
+
+<span class="code-comment">//</span><span class="code-comment"> Connect the selected thumb image to the thumbnail subject 
+</span><span class="code-comment">//</span><span class="code-comment"> so when we load the selected image, the thumbnail updates.
+</span>selectedImageThumb.Subscribe(a =&gt; thumbnailSubject.OnNext(a));
+
+<span class="code-comment">//</span><span class="code-comment"> Observe selectedImage on the WinForms thread to show 
+</span><span class="code-comment">//</span><span class="code-comment"> the selected image in the main window.
+</span>selectedImage.ObserveOn(<span class="code-keyword">this</span>).Subscribe(item =&gt; ShowImage(item.Image));</pre>
+
+<p>If you follow the code, you can see that it follows the flow diagram shown above.</p>
+
+<h2>Points of Interest</h2>
+
+<p>The Reactive Framework isn't a silver bullet, the be all and end all,
+ or the hammer for every nail. It is just another tool in a developer's 
+toolbelt.&nbsp;</p>
+
+<p>I haven't touched on the internals of the framework or how it works at a fundamental level. That will be for a future article.</p>
+
+<p>I had some issues with resolving method matching problems when using <code>Observable.FromEvent</code> with <code>WinForms </code>events. I am no doubt missing some simple piece, so if anyone has some insight, it would be most welcome.</p>
+
+<p>The Rx Framework opens some interesting possibilities for 
+transformation pipelines, or dataflow networks. While not perfectly 
+suited, it would still be an interesting topic to investigate.</p>
+
+<h2>Thanks</h2>
+
+<p>Thanks go to <a href="http://social.msdn.microsoft.com/Profile/en-US/?user=fcharlon">fcharlon</a> on the MSDN forums for assisting with some Rx issues.</p>
+
+<p>Thanks to the kind CodeProject member <a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1748330">leeloo999</a> for identifying and helping fix some memory usage issues in the Image Viewer.</p>
+
+<p>Thanks to everyone who read and voted for the article!</p>
+
+<h2>History</h2>
+
+<ul>
+<li>Jan 10, 2010 - First draft </li>
+
+<li>Jan 15, 2010 - First release </li>
+
+<li>Feb 5, 2010 - Fixed some memory issues and other minor article issues </li>
+</ul>
+
+
+
+
+
+
+			</div>
+			<!-- Main Page Contents End -->
+
+			
+			
+			<h2>License</h2>
+			<div id="ctl00_LicenseTerms"><p>This article, along with any associated source code and files, is licensed under <a href="http://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a></p></div>
+			
+
+			
+			<h2 id="ctl00_AboutHeading">About the Author</h2>
+
+			<div class="float-right">
+			<iframe src="RxByExample.aspx_elemei/i_002.htm" class="lqm_ad" marginheight="0" marginwidth="0" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="6" lqm_country="HU" lqm_tags="C#3.0,C#,Intermediate" frameborder="0" height="250px" scrolling="no" width="300px"></iframe>
+			</div>
+
+			
+			
+   
+<table border="0" cellpadding="0" cellspacing="5">
+<tbody><tr valign="top">
+<td id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhotoTable" style="width: 155px;" valign="top">
+	<b><a id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberProfileLink" href="http://www.codeproject.com/Members/Phil-Martin">Phil Martin...</a></b><br><br>
+	<center></center>
+
+	<div class="small-text">
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberJobTitle">Software Developer (Senior)</span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberCompany"></span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberLocation"><img src="RxByExample.aspx_elemei/AU.gif" alt="Australia" height="11px" width="16px"> Australia</span><br>
+		<br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberType">Member</span><br>
+		
+
+		
+	</div>
+</td>
+
+<td>
+	A professional developer in the Mining sector since 2001, Phil has a 
+passion for creating robust, quality scientific applications.<br><br>He 
+will never forget his roots though, those early nostalgia filled days of
+ writing Quake 1 and 2 mods, and writing 3D modelling tools for the mod 
+makers of the day.<br><br>Phil is passionate about Jesus, his family, 
+mathematics, art, tennis, squash, cycling and talking about himself in 
+the 5th person. A friend of his wife said that Phil doesn't mind the odd
+ bit of programming either.<br>	
+</td>
+</tr>
+</tbody></table><br>
+			
+			
+
+			<div class="clearfix"></div>
+
+			
+			<div id="ctl00_RateArticleRow" class="clearfix voting-bar">
+			<div class="column8_1" style="padding-top: 8px;"> <a href="#_top">Article Top</a></div>
+			<div class="column8_7 align-right"><div id="ctl00_RateArticle_RateItemWrapper" class="small-text" name="RateItem_52308">
+
+	<table small-text="" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td id="ctl00_RateArticle_VoteResultDiv" align="right" nowrap="nowrap" width="100%">
+			<span class="voteRes"></span>
+			<img class="loaderImg" alt="loading..." src="RxByExample.aspx_elemei/ajax-loader.gif" style="display: none;" height="16px" width="16px"> 
+		</td>
+
+	
+		<td class="voteTbl" style="white-space: nowrap;" align="right">
+			<table class="small-text">
+			<tbody><tr valign="middle">
+				
+				<td id="ctl00_RateArticle_RateText" style="padding-right: 5px; white-space: nowrap;">
+					<i><b>Rate this article for us!</b></i>
+				</td>
+
+				<td id="ctl00_RateArticle_StartForm" align="right" nowrap="nowrap">
+					<i>&nbsp;&nbsp;Poor</i>
+				</td>
+
+				<td id="ctl00_RateArticle_VoteFormDiv" style="white-space: nowrap;" align="left">
+					<table id="ctl00_RateArticle_VoteRBL" class="radio" border="0">
+	<tbody><tr>
+		<td><input id="ctl00_RateArticle_VoteRBL_0" name="ctl00$RateArticle$VoteRBL" value="1" onclick="ChkRtctl00_RateArticle(1, 52308);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"></td><td><input id="ctl00_RateArticle_VoteRBL_1" name="ctl00$RateArticle$VoteRBL" value="2" onclick="ChkRtctl00_RateArticle(2, 52308);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"></td><td><input id="ctl00_RateArticle_VoteRBL_2" name="ctl00$RateArticle$VoteRBL" value="3" onclick="ChkRtctl00_RateArticle(3, 52308);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"></td><td><input id="ctl00_RateArticle_VoteRBL_3" name="ctl00$RateArticle$VoteRBL" value="4" onclick="ChkRtctl00_RateArticle(4, 52308);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"></td><td><input id="ctl00_RateArticle_VoteRBL_4" name="ctl00$RateArticle$VoteRBL" value="5" onclick="ChkRtctl00_RateArticle(5, 52308);
+$('#ctl00_RateArticle_RCD').show();
+;" type="radio"></td>
+	</tr>
+</tbody></table> 
+				</td>
+
+				<td id="ctl00_RateArticle_EndForm" align="left">
+					<i>Excellent</i>
+				</td>
+
+				<td id="ctl00_RateArticle_VoteBtn">	
+					<input name="ctl00$RateArticle$SubmitRateBtn" value="Vote" onclick="return rateItem(52308,2,1,true,true,3);" id="ctl00_RateArticle_SubmitRateBtn" class="button" type="submit">
+				</td>
+
+			</tr>
+			</tbody></table>
+			<span id="ctl00_RateArticle_ErrorMessage" class="error"></span>
+		</td>
+	</tr>
+	</tbody></table>
+	<div class="hover-container">
+		<div id="ctl00_RateArticle_RCD" class="rating-comment align-left float-right">
+			Add a reason or comment to your vote: <a href="#" id="clear-rate_ctl00_RateArticle_RCD" title="close">x</a><br>
+			<textarea class="RateComment" rows="5" cols="60" style="width: 98%;"></textarea>
+		</div>
+	</div>
+</div>
+</div>
+			</div>
+			
+
+		</form>
+
+		
+		<div style="margin: auto; padding: 0px 10px; white-space: nowrap; overflow: hidden; width: 460px; height: 60px;">		  
+			<iframe src="RxByExample.aspx_elemei/i_003.htm" class="lqm_ad" marginheight="0" marginwidth="0" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="1" lqm_country="HU" lqm_tags="C#3.0,C#,Intermediate" frameborder="0" height="60px" scrolling="no" width="468px"></iframe>
+		</div>
+		
+
+		
+		
+		<h2>Comments and Discussions</h2>
+		<a name="_comments"></a><!-- Forum Start -->
+<div id="_MessageBoard" onclick="return SwitchMessage(event, null)">
+<table id="ForumTable" class="box forum" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><table border="0" cellpadding="3px" cellspacing="0" width="100%">
+<tbody><tr class="forum-header1">
+<td style="white-space: nowrap;"><img src="RxByExample.aspx_elemei/info-16.gif" alt="FAQ" style="border-width: 0pt; width: 16px; height: 16px; vertical-align: middle;">&nbsp;<a href="http://www.codeproject.com/KB/FAQs/MessageBoardsFAQ.aspx"><b>FAQ</b></a>&nbsp;</td><td colspan="2" style="white-space: nowrap; text-align: right;"><form action="/script/Forums/Search.aspx?fid=0" method="get" style="margin: 0pt; padding: 0pt;">
+<input name="fid" value="1557454" type="hidden"><input class="Frm_Input" name="kw" type="text">&nbsp;<input value="Search" name="FrmSrch" class="button" type="submit">
+</form></td>
+</tr><tr class="forum-header2">
+<td colspan="3" style="width: 100%;"><div style="text-align: right;">
+<form action="/script/Forums/SetOptions.aspx?floc=%2fKB%2fParallel_Programming%2fRxByExample.aspx&amp;fid=1557454&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick" method="get" style="margin: 0pt; padding: 0pt;">
+<input name="fid" value="1557454" type="hidden"><input name="currentQS" value="?floc=%2fKB%2fParallel_Programming%2fRxByExample.aspx&amp;fid=1557454&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick" type="hidden"><input name="floc" value="/KB/Parallel_Programming/RxByExample.aspx" type="hidden">Noise Tolerance<select size="1" class="Frm_DropDown" name="noise">
+<option value="1">Very High</option><option value="2">High</option><option selected="selected" value="3">Medium</option><option value="4">Low</option><option value="5">Very Low</option>
+</select>&nbsp;&nbsp;Layout<select size="1" class="Frm_DropDown" name="view">
+<option selected="selected" value="Quick">Normal</option><option value="Topic">Expand Posts only</option><option value="Expanded">Expand Posts &amp; Replies</option><option value="Thread">Thread View</option><option value="Normal">No Javascript</option><option value="Preview">No JS + Preview</option>
+</select>&nbsp;&nbsp;Per page<select size="1" class="Frm_DropDown" name="mpp">
+<option value="10">10</option><option selected="selected" value="25">25</option><option value="50">50</option>
+</select>&nbsp;&nbsp;&nbsp;<input value="Update" name="SetOpt" class="button" type="submit">
+</form>
+</div></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><a name="xx0xx"></a><table border="0" cellpadding="2px" cellspacing="0" width="100%">
+<tbody><tr class="forum-navbar">
+<td><img src="RxByExample.aspx_elemei/forum_newmsg.gif" alt="new" align="top" border="0" height="16px" width="16px"><a href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;floc=/KB/Parallel_Programming/RxByExample.aspx" class="toolbar" name="Frm_HoverNL" title="Create a new message thread" target="_top"><b>New Message</b></a></td><td>Msgs 1 to 15 of 15 (Total in Forum: 15) (<a href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick">Refresh</a>)</td><td style="text-align: right; white-space: nowrap;"><span class="toolbar">First</span><span class="toolbar">Prev</span><span class="toolbar">Next</span></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><table class="fixed-layout blank-background" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="5px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel " id="F3352609_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="16px"><a name="xx3352609xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3352609" href="http://www.codeproject.com/Messages/3352609/Excellent-article-but.aspx">Excellent article, but ....</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1748330">leeloo999</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">0:00 2 Feb '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3352609_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 16px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi, this article is one of the only sources for demo and
+ doc RX framwork practically... Three real examples with lot of reusable
+ know how. thanks.  <img src="RxByExample.aspx_elemei/smiley_wink.gif" alt="Wink" align="top">  <br><br>....
+ but I get a big memory usage problem for the image viewer example. If I
+ click a little bit on the thumb nails I get a memory overflow exception
+ ... and I have four pictures only....<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3352609&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3352609&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3352609" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3352609/Excellent-article-but.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3352609&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3352609" style="white-space: nowrap;">3.50/5 (2 votes) <script type="text/javascript">
+MsgVFrm(1748330,3352609,false,"","","");
+</script>Rate this message: <a href="#xx3352609xx" onclick="RateMsg(1748330, 3352609,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3352609xx" title="vote this message a 1" onclick="RateMsg(1748330, 3352609, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3352609xx" title="vote this message a 2" onclick="RateMsg(1748330, 3352609, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3352609xx" title="vote this message a 3" onclick="RateMsg(1748330, 3352609, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3352609xx" title="vote this message a 4" onclick="RateMsg(1748330, 3352609, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3352609xx" title="vote this message a 5" onclick="RateMsg(1748330, 3352609, 5,0)"><b>5</b></a> <a href="#xx3352609xx" onclick="RateMsg(1748330, 3352609,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel " id="F3352615_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="34px"><a name="xx3352615xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3352615" href="http://www.codeproject.com/Messages/3352615/Re-Excellent-article-but.aspx">Re: Excellent article, but ....</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">0:09 2 Feb '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3352615_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 34px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Wow, memory overflow exceptions aren't good!  I'll have a play and see if I can reproduce it here.<br><br>Not much use having non-functioning examples! <img src="RxByExample.aspx_elemei/smiley_smile.gif" alt="Smile" align="top"> <br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3352615&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3352615&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3352609" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3352615/Re-Excellent-article-but.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3352615&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3352615" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(292834,3352615,false,"","","");
+</script>Rate this message: <a href="#xx3352615xx" onclick="RateMsg(292834, 3352615,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3352615xx" title="vote this message a 1" onclick="RateMsg(292834, 3352615, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3352615xx" title="vote this message a 2" onclick="RateMsg(292834, 3352615, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3352615xx" title="vote this message a 3" onclick="RateMsg(292834, 3352615, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3352615xx" title="vote this message a 4" onclick="RateMsg(292834, 3352615, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3352615xx" title="vote this message a 5" onclick="RateMsg(292834, 3352615, 5,0)"><b>5</b></a> <a href="#xx3352615xx" onclick="RateMsg(292834, 3352615,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel " id="F3352972_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="34px"><a name="xx3352972xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3352972" href="http://www.codeproject.com/Messages/3352972/Re-Excellent-article-but.aspx">Re: Excellent article, but ....</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">5:09 2 Feb '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3352972_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 34px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Just a quick follow up on this.<br><br>I am really glad 
+you pointed the memory usage out, because there were quite a number of 
+problems with what I had done. One problem however I've not been able to
+ solve, and have <a href="http://social.msdn.microsoft.com/Forums/en/rx/thread/f02a0bb4-179a-4c50-bd89-2fb04e4fff2e">asked for some help</a>[<a href="http://social.msdn.microsoft.com/Forums/en/rx/thread/f02a0bb4-179a-4c50-bd89-2fb04e4fff2e" target="_blank" title="New Window">^</a>] on the DevLabs forums, and hopefully someone will be able to chip in there.<br><br>Once that is solved, I should have the memory usage down to behaving just like a normal ordinary application.<br><br>So thanks again!<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3352972&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3352972&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3352609" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3352972/Re-Excellent-article-but.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3352972&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3352972" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(292834,3352972,false,"","","");
+</script>Rate this message: <a href="#xx3352972xx" onclick="RateMsg(292834, 3352972,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3352972xx" title="vote this message a 1" onclick="RateMsg(292834, 3352972, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3352972xx" title="vote this message a 2" onclick="RateMsg(292834, 3352972, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3352972xx" title="vote this message a 3" onclick="RateMsg(292834, 3352972, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3352972xx" title="vote this message a 4" onclick="RateMsg(292834, 3352972, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3352972xx" title="vote this message a 5" onclick="RateMsg(292834, 3352972, 5,0)"><b>5</b></a> <a href="#xx3352972xx" onclick="RateMsg(292834, 3352972,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HiVote HdUnSel " id="F3355581_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="52px"><a name="xx3355581xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3355581" href="http://www.codeproject.com/Messages/3355581/Re-Excellent-article-but.aspx">Re: Excellent article, but ....</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1748330">leeloo999</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">0:17 4 Feb '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3355581_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 52px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="52px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi, I played a little bit with your imageviewer, 
+fcharlon's answer from Devlabs and memory monitoring. Following changes 
+solve memory overflow problem (especially if you use huge<br>.bmp files and click often to thumbs)<br><br>1. <pre>var selectedImage = (from item <span class="code-keyword">in</span> selectedFilename<br>                                <span class="code-keyword">let</span> filename = item.Filename<br>                                <span class="code-keyword">let</span> image = Image.FromFile(filename)<br>                                <span class="code-keyword">let</span> thumb = <span class="code-keyword">new</span> Bitmap(image, <span class="code-keyword">new</span> Size(64, <span class="code-digit">64</span>))<br>                                <span class="code-keyword">select</span> <span class="code-keyword">new</span>
+                                {<br>                                    item.Item,<br>                                    item.Filename,<br>                                    Image = image,<br>                                    Thumb = thumb<br>                                }).Publish();</pre>
+... as posted by fcharlon<br><br>2.         <pre>selectedImage.ObserveOn(this).Subscribe(item =&gt;<br>                {<br>                    Image img = pictureCurrent.Image;<br>                    <span class="code-keyword">if</span> (img != null)<br>                        img.Dispose();<br>                    pictureCurrent.Image = item.Image;<br>                });</pre>
+... for immediate freeing of unused memory<br><br>thanks &amp; greets  <img src="RxByExample.aspx_elemei/smiley_biggrin.gif" alt="Big Grin" align="top"> <br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3355581&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3355581&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3352609" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3355581/Re-Excellent-article-but.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3355581&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3355581" style="white-space: nowrap;">5.00/5 (1 vote) <script type="text/javascript">
+MsgVFrm(1748330,3355581,false,"","","");
+</script>Rate this message: <a href="#xx3355581xx" onclick="RateMsg(1748330, 3355581,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3355581xx" title="vote this message a 1" onclick="RateMsg(1748330, 3355581, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3355581xx" title="vote this message a 2" onclick="RateMsg(1748330, 3355581, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3355581xx" title="vote this message a 3" onclick="RateMsg(1748330, 3355581, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3355581xx" title="vote this message a 4" onclick="RateMsg(1748330, 3355581, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3355581xx" title="vote this message a 5" onclick="RateMsg(1748330, 3355581, 5,0)"><b>5</b></a> <a href="#xx3355581xx" onclick="RateMsg(1748330, 3355581,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel " id="F3355642_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="70px"><a name="xx3355642xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3355642" href="http://www.codeproject.com/Messages/3355642/Re-Excellent-article-but.aspx">Re: Excellent article, but ....</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">1:20 4 Feb '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3355642_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 70px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="70px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hey thanks a bunch leeloo. I'll incorporate those 
+changes, and a few others and update the code as soon as I can, 
+hopefully tonight!<br><br>It really is a fun framework to play with though. First time I've had to learn something really odd and new in a while.<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3355642&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3355642&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3352609" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3355642/Re-Excellent-article-but.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3355642&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3355642" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(292834,3355642,false,"","","");
+</script>Rate this message: <a href="#xx3355642xx" onclick="RateMsg(292834, 3355642,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3355642xx" title="vote this message a 1" onclick="RateMsg(292834, 3355642, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3355642xx" title="vote this message a 2" onclick="RateMsg(292834, 3355642, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3355642xx" title="vote this message a 3" onclick="RateMsg(292834, 3355642, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3355642xx" title="vote this message a 4" onclick="RateMsg(292834, 3355642, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3355642xx" title="vote this message a 5" onclick="RateMsg(292834, 3355642, 5,0)"><b>5</b></a> <a href="#xx3355642xx" onclick="RateMsg(292834, 3355642,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="root msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel " id="F3337024_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="16px"><a name="xx3337024xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3337024" href="http://www.codeproject.com/Messages/3337024/I-looked-into-RX-some-time-back.aspx">I looked into RX some time back</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/mvp_sm.gif" title="mvp" alt="mvp" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=569009">Sacha Barber</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">6:45 19 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3337024_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 16px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">And found it quite mental, I think you have done a good 
+job describing this API. Though I do not know how many will find it that
+ easy to pick up (rx API that is). Still great job. <br><br><div class="ForumSig"><b>Sacha Barber</b>
+<ul><li>Microsoft Visual C# MVP 2008/2009</li><li>Codeproject MVP 2008/2009</li></ul>Your best friend is you.<br>I'm my best friend too. We share the same views, and hardly ever argue<br><br><b>My Blog : <a href="http://sachabarber.net/" target="_blank">sachabarber.net</a></b></div><br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3337024&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3337024&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3337024" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3337024/I-looked-into-RX-some-time-back.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3337024&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3337024" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(569009,3337024,false,"","","");
+</script>Rate this message: <a href="#xx3337024xx" onclick="RateMsg(569009, 3337024,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3337024xx" title="vote this message a 1" onclick="RateMsg(569009, 3337024, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3337024xx" title="vote this message a 2" onclick="RateMsg(569009, 3337024, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3337024xx" title="vote this message a 3" onclick="RateMsg(569009, 3337024, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3337024xx" title="vote this message a 4" onclick="RateMsg(569009, 3337024, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3337024xx" title="vote this message a 5" onclick="RateMsg(569009, 3337024, 5,0)"><b>5</b></a> <a href="#xx3337024xx" onclick="RateMsg(569009, 3337024,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel " id="F3337822_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="34px"><a name="xx3337822xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3337822" href="http://www.codeproject.com/Messages/3337822/Re-I-looked-into-RX-some-time-back.aspx">Re: I looked into RX some time back</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">23:17 19 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3337822_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 34px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Yeah, it isn't the most familiar API in the world, but 
+once you dive in a bit, it offers a different way of looking at a number
+ of problems, particularly event handling.<br><br>Most of the time I 
+work on desktop applications, and having a guaranteed set of behaviors 
+for mouse events is worth a great deal.  As far as processing of data 
+though, I don't find it a great fit. The observer pattern is too 
+limiting for me in this regard, and since the Rx Framework is all about 
+the observer pattern, I don't find it that handy.<br><br>Thanks for reading through the article though, I hope it helps at some stage.<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3337822&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3337822&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3337024" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3337822/Re-I-looked-into-RX-some-time-back.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3337822&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3337822" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(292834,3337822,false,"","","");
+</script>Rate this message: <a href="#xx3337822xx" onclick="RateMsg(292834, 3337822,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3337822xx" title="vote this message a 1" onclick="RateMsg(292834, 3337822, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3337822xx" title="vote this message a 2" onclick="RateMsg(292834, 3337822, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3337822xx" title="vote this message a 3" onclick="RateMsg(292834, 3337822, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3337822xx" title="vote this message a 4" onclick="RateMsg(292834, 3337822, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3337822xx" title="vote this message a 5" onclick="RateMsg(292834, 3337822, 5,0)"><b>5</b></a> <a href="#xx3337822xx" onclick="RateMsg(292834, 3337822,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="root msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel " id="F3336211_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="16px"><a name="xx3336211xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3336211" href="http://www.codeproject.com/Messages/3336211/Is-codeproject-broken-or.aspx">Is codeproject broken or..</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=2618349">hammerstein05</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">14:46 18 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3336211_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 16px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">History<br><br>Dec 10, 2010 - First draft<br>Dec 15, 2010 - First release<br><br>Are you capable of time travel? If so, can you put an article together on that. <br><br>Back to the topic though, great article. Bookmarked and shall be looking over this with interest this evening.<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3336211&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3336211&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3336211" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3336211/Is-codeproject-broken-or.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3336211&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3336211" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(2618349,3336211,false,"","","");
+</script>Rate this message: <a href="#xx3336211xx" onclick="RateMsg(2618349, 3336211,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3336211xx" title="vote this message a 1" onclick="RateMsg(2618349, 3336211, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3336211xx" title="vote this message a 2" onclick="RateMsg(2618349, 3336211, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3336211xx" title="vote this message a 3" onclick="RateMsg(2618349, 3336211, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3336211xx" title="vote this message a 4" onclick="RateMsg(2618349, 3336211, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3336211xx" title="vote this message a 5" onclick="RateMsg(2618349, 3336211, 5,0)"><b>5</b></a> <a href="#xx3336211xx" onclick="RateMsg(2618349, 3336211,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HiVote HdUnSel " id="F3336716_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="34px"><a name="xx3336716xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3336716" href="http://www.codeproject.com/Messages/3336716/Re-Is-codeproject-broken-or.aspx">Re: Is codeproject broken or..</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">2:44 19 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3336716_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 34px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">I was going to write an article about time travel, but it was deleted before I wrote it.<br><br>Thanks for picking it out though, I'll fix that and a few other mistakes soon.<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3336716&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3336716&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3336211" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3336716/Re-Is-codeproject-broken-or.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3336716&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3336716" style="white-space: nowrap;">5.00/5 (1 vote) <script type="text/javascript">
+MsgVFrm(292834,3336716,false,"","","");
+</script>Rate this message: <a href="#xx3336716xx" onclick="RateMsg(292834, 3336716,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3336716xx" title="vote this message a 1" onclick="RateMsg(292834, 3336716, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3336716xx" title="vote this message a 2" onclick="RateMsg(292834, 3336716, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3336716xx" title="vote this message a 3" onclick="RateMsg(292834, 3336716, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3336716xx" title="vote this message a 4" onclick="RateMsg(292834, 3336716, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3336716xx" title="vote this message a 5" onclick="RateMsg(292834, 3336716, 5,0)"><b>5</b></a> <a href="#xx3336716xx" onclick="RateMsg(292834, 3336716,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="root msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel " id="F3335778_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="16px"><a name="xx3335778xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3335778" href="http://www.codeproject.com/Messages/3335778/Demo-download-broken.aspx">Demo download broken...</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1431085">Andrew Rissing</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">7:28 18 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3335778_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 16px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Just fyi.<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3335778&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3335778&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3335778" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3335778/Demo-download-broken.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3335778&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3335778" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(1431085,3335778,false,"","","");
+</script>Rate this message: <a href="#xx3335778xx" onclick="RateMsg(1431085, 3335778,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3335778xx" title="vote this message a 1" onclick="RateMsg(1431085, 3335778, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3335778xx" title="vote this message a 2" onclick="RateMsg(1431085, 3335778, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3335778xx" title="vote this message a 3" onclick="RateMsg(1431085, 3335778, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3335778xx" title="vote this message a 4" onclick="RateMsg(1431085, 3335778, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3335778xx" title="vote this message a 5" onclick="RateMsg(1431085, 3335778, 5,0)"><b>5</b></a> <a href="#xx3335778xx" onclick="RateMsg(1431085, 3335778,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel " id="F3335783_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="34px"><a name="xx3335783xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3335783" href="http://www.codeproject.com/Messages/3335783/Re-Demo-download-broken.aspx">Re: Demo download broken...</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1431085">Andrew Rissing</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">7:30 18 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3335783_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 34px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Correction, your source is your demo.<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3335783&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3335783&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3335778" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3335783/Re-Demo-download-broken.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3335783&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3335783" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(1431085,3335783,false,"","","");
+</script>Rate this message: <a href="#xx3335783xx" onclick="RateMsg(1431085, 3335783,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3335783xx" title="vote this message a 1" onclick="RateMsg(1431085, 3335783, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3335783xx" title="vote this message a 2" onclick="RateMsg(1431085, 3335783, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3335783xx" title="vote this message a 3" onclick="RateMsg(1431085, 3335783, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3335783xx" title="vote this message a 4" onclick="RateMsg(1431085, 3335783, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3335783xx" title="vote this message a 5" onclick="RateMsg(1431085, 3335783, 5,0)"><b>5</b></a> <a href="#xx3335783xx" onclick="RateMsg(1431085, 3335783,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel " id="F3336720_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="52px"><a name="xx3336720xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3336720" href="http://www.codeproject.com/Messages/3336720/Re-Demo-download-broken.aspx">Re: Demo download broken...</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">2:46 19 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3336720_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 52px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="52px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">You are right, the demo zip file, which is supposed to 
+contain the binaries built from the source code is empty. I'll fix that 
+and a few other little mistakes up real soon.<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3336720&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3336720&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3335778" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3336720/Re-Demo-download-broken.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3336720&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3336720" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(292834,3336720,false,"","","");
+</script>Rate this message: <a href="#xx3336720xx" onclick="RateMsg(292834, 3336720,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3336720xx" title="vote this message a 1" onclick="RateMsg(292834, 3336720, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3336720xx" title="vote this message a 2" onclick="RateMsg(292834, 3336720, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3336720xx" title="vote this message a 3" onclick="RateMsg(292834, 3336720, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3336720xx" title="vote this message a 4" onclick="RateMsg(292834, 3336720, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3336720xx" title="vote this message a 5" onclick="RateMsg(292834, 3336720, 5,0)"><b>5</b></a> <a href="#xx3336720xx" onclick="RateMsg(292834, 3336720,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="root msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel " id="F3332998_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="16px"><a name="xx3332998xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3332998" href="http://www.codeproject.com/Messages/3332998/Very-Clear.aspx">Very Clear</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=63555">Dewey</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">0:44 15 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3332998_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 16px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">This article cleared up a few of the mental blocks I had in getting started with Rx.<br><br>Good work!<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3332998&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3332998&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3332998" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3332998/Very-Clear.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3332998&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3332998" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(63555,3332998,false,"","","");
+</script>Rate this message: <a href="#xx3332998xx" onclick="RateMsg(63555, 3332998,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3332998xx" title="vote this message a 1" onclick="RateMsg(63555, 3332998, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3332998xx" title="vote this message a 2" onclick="RateMsg(63555, 3332998, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3332998xx" title="vote this message a 3" onclick="RateMsg(63555, 3332998, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3332998xx" title="vote this message a 4" onclick="RateMsg(63555, 3332998, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3332998xx" title="vote this message a 5" onclick="RateMsg(63555, 3332998, 5,0)"><b>5</b></a> <a href="#xx3332998xx" onclick="RateMsg(63555, 3332998,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="root msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel " id="F3332519_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="16px"><a name="xx3332519xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3332519" href="http://www.codeproject.com/Messages/3332519/Example-vs-Description.aspx">Example vs. Description</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1925344">Alexander Müller</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">12:28 14 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3332519_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 16px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="16px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi Phil,<br><br>this introduction is worth every pixel 
+on a screen. You wrote that this article only provides examples rather 
+than descriptions. And that is absolutely okay.  <img src="RxByExample.aspx_elemei/smiley_smile.gif" alt="Smile" align="top"> <br><br>Cheers<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3332519&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3332519&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3332519" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3332519/Example-vs-Description.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3332519&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3332519" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(1925344,3332519,false,"","","");
+</script>Rate this message: <a href="#xx3332519xx" onclick="RateMsg(1925344, 3332519,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3332519xx" title="vote this message a 1" onclick="RateMsg(1925344, 3332519, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3332519xx" title="vote this message a 2" onclick="RateMsg(1925344, 3332519, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3332519xx" title="vote this message a 3" onclick="RateMsg(1925344, 3332519, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3332519xx" title="vote this message a 4" onclick="RateMsg(1925344, 3332519, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3332519xx" title="vote this message a 5" onclick="RateMsg(1925344, 3332519, 5,0)"><b>5</b></a> <a href="#xx3332519xx" onclick="RateMsg(1925344, 3332519,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="quick">
+<td class="msg-divide"><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="1px" width="1px"></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel " id="F3332976_h0">
+<td width="100%"><table class="quickHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td class="Frm_MsgIndent" width="34px"><a name="xx3332976xx"></a><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3332976" href="http://www.codeproject.com/Messages/3332976/Re-Example-vs-Description.aspx">Re: Example vs. Description</a> <a onclick="return Pin(this);" href="#" title="Click to pin message"><img src="RxByExample.aspx_elemei/pin.gif" alt="Pin" align="top" border="0" height="12px" width="13px"></a></td><td style="width: 20px; white-space: nowrap;"><img src="RxByExample.aspx_elemei/member_sm.gif" title="member" alt="member" border="0" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=292834">Phil Martin...</a></td><td class="Frm_MsgDate" style="vertical-align: top; white-space: nowrap;">0:32 15 Jan '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr id="F3332976_h1" style="display: none;">
+<td width="100%"><table class="quickBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width: 34px;"><img src="RxByExample.aspx_elemei/t.gif" alt="" height="1px" width="34px"></td><td class="MsgBd BdSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Thanks for the kind words Alexander, and I'm glad you 
+found the article useful.  It certainly was useful for me making those 
+examples. I sure learned a great deal, and most of it what <b>not</b> to do.<br><br>- Phil<br></td>
+</tr><tr style="vertical-align: middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3332976&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=r" title="Reply">Reply</a>·<a class="toolbar" href="http://www.codeproject.com/script/Forums/Edit.aspx?fid=1557454&amp;select=3332976&amp;floc=/KB/Parallel_Programming/RxByExample.aspx&amp;action=e" title="Email">Email</a>·<a class="toolbar" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;sort=Position&amp;tid=3332519" title="View&nbsp;Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3332976/Re-Example-vs-Description.aspx" title="Get permanent link">PermaLink</a>·<a class="toolbar" href="http://www.codeproject.com/script/Bookmarks/Add.aspx?obid=3332976&amp;obtid=3&amp;action=AddBookmark" title="Bookmark this post">Bookmark</a></td><td class="msg-footer" style="text-align: right;"><span id="MVF3332976" style="white-space: nowrap;"><script type="text/javascript">
+MsgVFrm(292834,3332976,false,"","","");
+</script>Rate this message: <a href="#xx3332976xx" onclick="RateMsg(292834, 3332976,1,0);"><img src="RxByExample.aspx_elemei/thumbs_down.gif" alt="vote 1" align="middle" border="0" height="14" width="14"></a> <a class="toolbar" href="#xx3332976xx" title="vote this message a 1" onclick="RateMsg(292834, 3332976, 1,0)"><b>1</b></a> <a class="toolbar" href="#xx3332976xx" title="vote this message a 2" onclick="RateMsg(292834, 3332976, 2,0)"><b>2</b></a> <a class="toolbar" href="#xx3332976xx" title="vote this message a 3" onclick="RateMsg(292834, 3332976, 3,0)"><b>3</b></a> <a class="toolbar" href="#xx3332976xx" title="vote this message a 4" onclick="RateMsg(292834, 3332976, 4,0)"><b>4</b></a> <a class="toolbar" href="#xx3332976xx" title="vote this message a 5" onclick="RateMsg(292834, 3332976, 5,0)"><b>5</b></a> <a href="#xx3332976xx" onclick="RateMsg(292834, 3332976,5,0);"><img src="RxByExample.aspx_elemei/thumbs_up.gif" alt="vote 5" align="middle" border="0" height="14" width="14"></a> </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><img src="RxByExample.aspx_elemei/t.gif" alt="" border="0" height="5px" width="1px"></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><table cellpadding="2px" cellspacing="0" width="100%">
+<tbody><tr class="forum-footer">
+<td>Last Visit: 1:26 5 Nov '10  &nbsp; &nbsp; Last Update: 23:01 6 Nov '10 </td><td style="text-align: right; white-space: nowrap;"><input id="_mbnUrl" value="/KB/Parallel_Programming/RxByExample.aspx?fid=1557454&amp;df=90&amp;mpp=25&amp;noise=3&amp;sort=Position&amp;view=Quick&amp;fr=16" type="hidden"><b>1</b></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table>
+</div><p class="small-text"><img src="RxByExample.aspx_elemei/msg_general.gif" alt="General" align="top" height="16px" width="16px"> General &nbsp;&nbsp; <img src="RxByExample.aspx_elemei/msg_news.gif" alt="News" align="top" height="16px" width="16px"> News &nbsp;&nbsp; <img src="RxByExample.aspx_elemei/msg_question.gif" alt="Question" align="top" height="16px" width="16px"> Question &nbsp;&nbsp; <img src="RxByExample.aspx_elemei/msg_answer.gif" alt="Answer" align="top" height="16px" width="16px"> Answer &nbsp;&nbsp; <img src="RxByExample.aspx_elemei/msg_joke.gif" alt="Joke" align="top" height="16px" width="16px"> Joke &nbsp;&nbsp; <img src="RxByExample.aspx_elemei/msg_rant.gif" alt="Rant" align="top" height="16px" width="16px"> Rant &nbsp;&nbsp; <img src="RxByExample.aspx_elemei/msg_admin.gif" alt="Admin" align="top" height="16px" width="16px"> Admin &nbsp;&nbsp; </p><p class="small-text">Use Ctrl+Left/Right to switch messages, Ctrl+Up/Down to switch threads, Ctrl+PgUp/PgDown to switch pages.</p>
+<!-- Forum End -->
+
+
+
+
+		
+		<div class="theme1-background" style="height: 2px;"></div>
+
+		<div class="extended tiny-text">
+			<div class="row" style="margin: auto;">
+				<div class="float-left">
+					<a id="ctl00_PermaLink" href="http://www.codeproject.com/KB/Parallel_Programming/RxByExample.aspx">PermaLink</a> | 
+					<a id="ctl00_PrivacyLink" href="http://www.codeproject.com/info/privacy.aspx">Privacy</a> |
+					<a id="ctl00_TermsOfUseLink" href="http://www.codeproject.com/info/TermsOfUse.aspx">Terms of Use</a>
+					<br>Last Updated: 7 Feb 2010<br>
+					<br>
+				</div>
+				<div class="float-right align-right">
+					Copyright 2010 by Phil Martin...<br>Everything else
+					Copyright © <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2010 <br>
+					Web19 |
+					<a id="ctl00_AdvertiseLink" href="http://www.codeproject.com/info/MediaKit.aspx">Advertise on the Code Project </a>
+				</div>
+			</div>
+		</div>
+		
+
+	
+
+</div>
+
+
+
+<div id="ctl00_NavRight" class="nav-right">
+
+	
+
+	<script type="text/javascript">document.write(unescape('\r\n\u003cdiv class=\"announce\"\u003e\r\n\u003cdiv class=\"announce-header\"\u003eSponsored Links\u003c/div\u003e\r\n\u003cdiv class=\"announce-content\"\u003e\t\r\n\r\n\r\n\u003cdiv class=\"container-adwords\"\u003e\r\n\t\u003ca id=\"ctl00_CatalogItems_FeatureItemRptr_ctl00_Link\" href=\"/script/Catalog/Redir.aspx?ctid=3264&amp;cttype=2\" target=\"_blank\"\u003e\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl00_Title\" class=\"title\"\u003eUIControlSuite .NET\u003c/span\u003e\u003cbr /\u003e\r\n\t\t\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl00_Teaser\" title=\"32 powerful .NET controls for WinForms, WPF, and Silverlight 3.0 - Includes Office 2007 style Ribbon control, Grid with built-in custom control columns, TreeListView, Multi-column combobox, Wrap layout panel control, Office 2007 controls, OneNote style tabstrip and more!\" class=\"desc\"\u003e32 powerful .NET controls for WinForms, WPF,...\u003c/span\u003e\u003cbr /\u003e\r\n\t\t\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl00_Url\" class=\"link\"\u003ewww.binarymission.co.uk\u003c/span\u003e\u003c/a\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv class=\"container-adwords\"\u003e\r\n\t\u003ca id=\"ctl00_CatalogItems_FeatureItemRptr_ctl01_Link\" href=\"/script/Catalog/Redir.aspx?ctid=2680&amp;cttype=2\" target=\"_blank\"\u003e\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl01_Title\" class=\"title\"\u003eActiveReports by GrapeCity\u003c/span\u003e\u003cbr /\u003e\r\n\t\t\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl01_Teaser\" title=\"ActiveReports by GrapeCity is the award-winning .NET reporting tool for the world&#39;s best applications for over a decade. Highlights include unmatched customization, fast performance, super high quality, and multilanguage features — all battle-tested by over 50,000 users.\" class=\"desc\"\u003eActiveReports by GrapeCity is the...\u003c/span\u003e\u003cbr /\u003e\r\n\t\t\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl01_Url\" class=\"link\"\u003ewww.datadynamics.com\u003c/span\u003e\u003c/a\u003e\r\n\u003c/div\u003e\r\n\r\n\u003cdiv class=\"container-adwords\"\u003e\r\n\t\u003ca id=\"ctl00_CatalogItems_FeatureItemRptr_ctl02_Link\" href=\"/script/Catalog/Redir.aspx?ctid=2393&amp;cttype=2\" target=\"_blank\"\u003e\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl02_Title\" class=\"title\"\u003eResco MobileForms Toolkit\u003c/span\u003e\u003cbr /\u003e\r\n\t\t\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl02_Teaser\" title=\"The richest, most complete and award winning set of components for .NET Compact Framework\" class=\"desc\"\u003eThe richest, most complete and award winning...\u003c/span\u003e\u003cbr /\u003e\r\n\t\t\u003cspan id=\"ctl00_CatalogItems_FeatureItemRptr_ctl02_Url\" class=\"link\"\u003ewww.resco.net\u003c/span\u003e\u003c/a\u003e\r\n\u003c/div\u003e\r\n\r\n\r\n\u003c/div\u003e\r\n\u003c/div\u003e\r\n\r\n\r\n'));</script>
+<div class="announce">
+<div class="announce-header">Sponsored Links</div>
+<div class="announce-content">	
+
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=3264&amp;cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Title" class="title">UIControlSuite .NET</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Teaser" title="32 powerful .NET controls for WinForms, WPF, and Silverlight 3.0 - Includes Office 2007 style Ribbon control, Grid with built-in custom control columns, TreeListView, Multi-column combobox, Wrap layout panel control, Office 2007 controls, OneNote style tabstrip and more!" class="desc">32 powerful .NET controls for WinForms, WPF,...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Url" class="link">www.binarymission.co.uk</span></a>
+</div>
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=2680&amp;cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Title" class="title">ActiveReports by GrapeCity</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Teaser" title="ActiveReports by GrapeCity is the award-winning .NET reporting tool for the world's best applications for over a decade. Highlights include unmatched customization, fast performance, super high quality, and multilanguage features — all battle-tested by over 50,000 users." class="desc">ActiveReports by GrapeCity is the...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Url" class="link">www.datadynamics.com</span></a>
+</div>
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=2393&amp;cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Title" class="title">Resco MobileForms Toolkit</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Teaser" title="The richest, most complete and award winning set of components for .NET Compact Framework" class="desc">The richest, most complete and award winning...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Url" class="link">www.resco.net</span></a>
+</div>
+
+
+</div>
+</div>
+
+
+
+
+	
+<div id="Th">
+</div>
+
+
+	
+<div class="announce">
+<div class="announce-header">See Also...</div>
+<div class="announce-content">	
+
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl00_TitleLink" class="title" href="http://www.codeproject.com/KB/aspnet/Creating_PDF_documents_in.aspx">Creating PDF Documents in ASP.NET</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl00_Teaser" class="desc">How to create PDF documents in ASP.NET.</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl01_TitleLink" class="title" href="http://www.codeproject.com/KB/database/CsvReader.aspx">A Fast CSV Reader</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl01_Teaser" class="desc">A reader that provides fast, non-cached,...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl02_TitleLink" class="title" href="http://www.codeproject.com/KB/aspnet/ImportExportCSV.aspx">A Simplified SQL-CSV Import/Export Functionality</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl02_Teaser" class="desc">A simplified SQL-CSV import/export functionality.</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl03_TitleLink" class="title" href="http://www.codeproject.com/KB/database/FinalCSVReader.aspx">Importing CSV Data and saving it in database</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl03_Teaser" class="desc">This article shows how to import CSV data and...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl04_TitleLink" class="title" href="http://www.codeproject.com/KB/database/TransferUsingSQLBulkCopy.aspx">Transferring Data Using SqlBulkCopy</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl04_Teaser" class="desc">An article on how to transfer data using...</span><br>
+</div>
+
+</div>
+</div>
+
+
+
+
+	
+
+<div class="announce ">
+<div class="announce-header">Announcements</div>
+<div class="announce-content">
+<table cellpadding="2">
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="middle"><td><img id="ctl00_Announcements_News_ctl00_Img" src="RxByExample.aspx_elemei/13807.png" alt="News" style="height: 24px; width: 24px; border-width: 0px;" align="middle"></td>
+<td><a id="ctl00_Announcements_News_ctl00_Link" href="http://www.virtualtechsummits.com/Register.aspx?EventID=5">Register for Our Virtual Tech Summits</a></td></tr>
+
+<tr valign="middle"><td><img id="ctl00_Announcements_News_ctl01_Img" src="RxByExample.aspx_elemei/13673.jpg" alt="News" style="height: 24px; width: 24px; border-width: 0px;" align="middle"></td>
+<td><a id="ctl00_Announcements_News_ctl01_Link" href="http://www.codeproject.com/Competitions/447/Windows-Phone-7-Competition.aspx">Post a Windows Phone 7 Tutorial-Win HTC 7!</a></td></tr>
+
+<tr valign="middle"><td><img id="ctl00_Announcements_News_ctl02_Img" src="RxByExample.aspx_elemei/13463.jpg" alt="News" style="height: 24px; width: 24px; border-width: 0px;" align="middle"></td>
+<td><a id="ctl00_Announcements_News_ctl02_Link" href="http://www.codeproject.com/Competitions/441/Hardware-and-Device-Programming-Competition.aspx">Want a Robot? Enter Our Hardware Comp!</a></td></tr>
+
+<tr valign="middle"><td><img id="ctl00_Announcements_News_ctl03_Img" src="RxByExample.aspx_elemei/13270.png" alt="News" style="height: 24px; width: 24px; border-width: 0px;" align="middle"></td>
+<td><a id="ctl00_Announcements_News_ctl03_Link" href="http://www.codeproject.com/Competitions/440/Windows-Azure-App-Competition.aspx">Got an Azure app? Win an Xbox &amp; Kinect</a></td></tr>
+
+
+
+
+</tbody></table>
+</div>
+</div>
+
+	
+<div class="announce">
+<div class="announce-header">The Daily Insider</div>
+<div class="announce-content">
+
+<div><a id="ctl00_News_News_ctl01_Link" href="http://citizen428.net/archives/434">30 free programming books</a></div>
+
+Daily News: <a id="ctl00_News_News_ctl02_Subscribe" href="http://www.codeproject.com/Feature/Insider/">Signup now</a>.
+</div>
+</div>
+		
+
+	<div style="margin: auto; width: 150px;"><iframe src="RxByExample.aspx_elemei/i_004.htm" class="lqm_ad" marginheight="0" marginwidth="0" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="21" lqm_country="HU" lqm_tags="C#3.0,C#,Intermediate" frameborder="0" height="80px" scrolling="no" width="150px"></iframe>
+	</div>
+	
+	<div style="margin: 10px auto auto; width: 160px;"><iframe src="RxByExample.aspx_elemei/i_005.htm" class="lqm_ad" marginheight="0" marginwidth="0" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="18" lqm_country="HU" lqm_tags="C#3.0,C#,Intermediate" frameborder="0" height="600px" scrolling="no" width="160px"></iframe>
+	</div>
+
+</div>
+
+
+</div>
+</div>
+
+
+<script type="text/javascript" language="Javascript" src="RxByExample.aspx_elemei/jquery-1.js"></script><script type="text/javascript">//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/script/JS/jquery-1.4.2.min.js' type='text/javascript' %3E%3C/script%3E"));
+}//]]></script>
+<script type="text/javascript" language="Javascript" src="RxByExample.aspx_elemei/article.js"></script>
+<script type="text/javascript" language="Javascript">//<![CDATA[
+var socialLinks = new social();
+socialLinks.PlaceholderId="ATD";socialLinks.ObjectId=52308;
+socialLinks.ObjectTypeId=2;
+socialLinks.addtoMethod=1;
+socialLinks.Horizontal=false;
+socialLinks.Showname=true;
+socialLinks.setupLinks("socialLinks", document.location.href,escape(document.title), 100, 0, "small-text Bold", "AddTo");
+socialLinks.setupMenu();
+function RetrieveJobsSummary(divName, objectId, objectTypeId, countryId, attributesList) {
+                        var elm = $('div[id=' + divName + ']');
+                        if (elm&&elm.length > 0) {
+                            var queryString = '/script/Jobs/Ajax/GetRelatedJobs.aspx?';
+                            queryString += 'objId='    + objectId;
+                            queryString += '&typeId='  + objectTypeId;
+                            queryString += '&cntrId='  + countryId;
+                            queryString += '&atrList=' + attributesList;
+                            queryString += '&r=' + Math.random().toString();
+                            $(elm).load(queryString);
+                        }
+                    }$(document).ready(function() {RetrieveJobsSummary('Th',52308,2,99,"69,81,153");});
+$(function() { $('.lqm_ad').AdSigniaAd('http://a.lakequincy.com/i.ashx'); });
+var oSrchFlt = false, oSrchBox=false,srchBoxFoc=false;
+$(document).ready(function() {
+ InitWatermark('sb_tb', 'Search');
+ var sbar = $('#sb_tb'); 
+ var sfilter = $('#SearchFilter');
+ if (sbar && sfilter) {
+  sfilter.removeClass('popup'); sfilter.hide();
+  sbar.blur(function() { if (!oSrchFlt)sfilter.hide();srchBoxFoc=false; });
+  sbar.focus(function() { oSrchFlt=false;srchBoxFoc=true;sfilter.show(); });
+  sbar.mouseleave(function() { oSrchBox=false; });
+  sbar.mouseover(function() { oSrchBox=true; });
+  sfilter.mouseleave(function() { oSrchFlt=false; if (!srchBoxFoc&&!oSrchBox)sfilter.hide();});
+  sfilter.mouseover(function() { oSrchFlt=true; });
+ }
+});
+$("#ctl00_RateArticle_RateItemWrapper").removeClass("container-rating");$('#clear-rate_ctl00_RateArticle_RCD').click(function () { $('#ctl00_RateArticle_RCD').hide(); return false;});
+function ChkRtctl00_RateArticle(val, objId) {if (val<=3||true) {
+$('div[name=RateItem_' + objId + '] .rating-comment').css("display","");}
+else $('div[name=RateItem_' + objId + '] .rating-comment').css("display","none");}
+
+
+//]]>
+</script>
+
+
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1735123-1']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_setDomainName', 'www.codeproject.com']);
+	_gaq.push(['_setSessionTimeout', '1200']); 
+
+	(function () {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})(); 
+</script>
+
+</body></html>

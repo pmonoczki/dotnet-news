@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Assembly>
+  <Method Name="CodeContract.Program.Main()">
+    <Outcome Kind="Requires" Outcome="False" Message="requires is false: num &gt; 5 (not greather than 5)" PrimaryILOffset="9" MethodILOffset="8" />
+  </Method>
+</Assembly>

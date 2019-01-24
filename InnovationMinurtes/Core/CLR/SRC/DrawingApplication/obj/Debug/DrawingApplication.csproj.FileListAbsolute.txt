@@ -1,0 +1,6 @@
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\DrawingApplication\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\DrawingApplication\obj\Debug\DrawingApplication.DrawingCanvas.resources
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\DrawingApplication\obj\Debug\DrawingApplication.DrawingForm.resources
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\DrawingApplication\obj\Debug\DrawingApplication.Properties.Resources.resources
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\DrawingApplication\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\DrawingApplication\obj\Debug\GenerateResource-ResGen.write.1.tlog

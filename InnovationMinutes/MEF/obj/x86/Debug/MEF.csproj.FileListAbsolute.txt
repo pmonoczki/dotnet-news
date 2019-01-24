@@ -1,0 +1,18 @@
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MEF\bin\Debug\MEF.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MEF\bin\Debug\MEF.pdb
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\MEF.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\MEF.pdb
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\Decl\MEF.exe
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\Decl\MEF.pdb
+I:\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\MEF.exe
+I:\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\MEF.pdb
+I:\InnovationMinurtes\InnovationMinutes\MEF\bin\Debug\MEF.exe
+I:\InnovationMinurtes\InnovationMinutes\MEF\bin\Debug\MEF.pdb
+I:\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\Decl\MEF.exe
+I:\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\Decl\MEF.pdb
+I:\InnovationMinurtes\InnovationMinutes\MEF\bin\Debug\Microsoft.ComponentModel.Composition.Diagnostics.dll
+I:\InnovationMinurtes\InnovationMinutes\MEF\bin\Debug\Microsoft.ComponentModel.Composition.Diagnostics.pdb
+D:\PENDRIVE\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\MEF.exe
+D:\PENDRIVE\InnovationMinurtes\InnovationMinutes\MEF\obj\x86\Debug\MEF.pdb

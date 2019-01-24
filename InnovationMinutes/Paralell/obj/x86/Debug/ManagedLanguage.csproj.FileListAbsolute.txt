@@ -1,0 +1,13 @@
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Test.py
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\IronPython.Modules.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Dynamic.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.Debugging.dll
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Microsoft.Scripting.dll

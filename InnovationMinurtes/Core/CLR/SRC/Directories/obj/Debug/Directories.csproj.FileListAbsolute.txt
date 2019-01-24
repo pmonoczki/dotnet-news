@@ -1,0 +1,5 @@
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\Directories\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\Directories\obj\Debug\Directories.DirectoriesForm.resources
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\Directories\obj\Debug\Directories.Properties.Resources.resources
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\Directories\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\Core\CLR\SRC\Directories\obj\Debug\GenerateResource-ResGen.write.1.tlog

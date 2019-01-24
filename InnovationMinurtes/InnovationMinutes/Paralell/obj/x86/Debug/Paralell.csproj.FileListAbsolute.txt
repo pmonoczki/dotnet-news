@@ -1,0 +1,7 @@
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\bin\Debug\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Paralell.pdb
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.exe
+I:\InnovationMinurtes\InnovationMinutes\Paralell\obj\x86\Debug\Decl\Paralell.pdb

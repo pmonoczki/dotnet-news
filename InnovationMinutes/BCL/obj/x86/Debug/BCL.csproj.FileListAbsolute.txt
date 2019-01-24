@@ -1,0 +1,9 @@
+I:\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.exe
+I:\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.pdb
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.exe
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.pdb
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\Decl\BCL.exe
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\Decl\BCL.pdb
+D:\PENDRIVE\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.exe
+D:\PENDRIVE\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.pdb

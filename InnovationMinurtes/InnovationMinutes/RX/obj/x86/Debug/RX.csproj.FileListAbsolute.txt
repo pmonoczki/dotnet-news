@@ -1,0 +1,12 @@
+C:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\RX\bin\Debug\RX.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\RX\bin\Debug\RX.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\RX.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\RX.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\Decl\RX.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\Decl\RX.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\RX\bin\Debug\RX.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\RX\bin\Debug\RX.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\ResolveAssemblyReference.cache
+G:\Finito\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\RX.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\RX\obj\x86\Debug\RX.pdb

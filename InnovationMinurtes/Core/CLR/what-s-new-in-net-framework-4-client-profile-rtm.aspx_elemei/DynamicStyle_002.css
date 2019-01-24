@@ -1,0 +1,247 @@
+/*taken from Aaron Stebner's overrides*/
+
+body, html {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#333
+}
+.layout, .page-tabs, .admin-bar .navigation-list, .admin-bar fieldset.field-list, .wireframe-header-fragment-inner, .poweredby-wrapper, .footer-fragments, .footer-fragments-header, .footer-fragments-footer {
+	max-width:100%;
+	min-width:100%;
+	width:100%;
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.left-sidebar {
+	width:234px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar {
+	width:190px
+}
+.layout-region.header .content-fragment a:visited, .layout-region.header .content-fragment a:active, .layout-region.header .content-fragment a:link {
+	color:#000000;
+}
+.layout-region.header .content-fragment a:hover {
+	color:#009933;
+	text-decoration:none
+}
+.layout-region.header .content-fragment h1 {
+	font-size:2em;
+	margin-top:0;
+	margin-bottom:0
+}
+.layout-region.header .content-fragment {
+	margin-top:5px;
+	margin-bottom:0
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.left-sidebar a, .layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.left-sidebar, .layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar a {
+	font-weight:normal
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar a.internal-link.view-post {
+	font-size:0.9em
+}
+a:visited, a:active, a:link {
+	color:#009933;
+	text-decoration:none
+}
+a:hover {
+	text-decoration:underline
+}
+.header-fragments {
+	margin-bottom:-6px
+}
+.page-editing, .header-fragments, .layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.header {
+	background:#cceeaa
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.header, .layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.content {
+	border-bottom:4px solid #009933
+}
+.content-fragment.blog-post .full-post .post-name, .content-fragment.blog-post-list .content-list.standard .content-item .post-name, .abbreviated-post h4.post-name {
+	font-size:1.2em
+}
+.abbreviated-post .avatar {
+	margin-top:2px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.content {
+	border-left:1px solid #555555;
+	border-right:1px solid #555555;
+	background-color:#eee;
+	padding-right:12px;
+	min-height:1465px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.content .abbreviated-post .post-content a {
+	font-weight:normal
+}
+/*Begin custom search box*/
+
+.content-fragment.search-form .search input {
+width:105px;
+}
+.content-fragment.search-form .search .field-item-input {
+background:url("../../../wireframe/Images/search-field-button-page-transparent2.png") no-repeat scroll right center transparent;
+width:151px;
+}
+.content-fragment.search-form .search div {
+background:url("../../../wireframe/Images/search-field-input-page-transparent2.png") no-repeat scroll right center transparent;
+width:151px;
+} 
+
+/*End custom search box*/
+
+.content-fragment.search-form .field-item {
+padding:2px 0 0;
+}
+
+.layout-region.right-sidebar .abbreviated-post .post-author, .layout-region.right-sidebar .abbreviated-post .post-date, .layout-region.right-sidebar .abbreviated-post .post-application, .layout-region.right-sidebar .abbreviated-post .post-actions {
+	display:none
+}
+.content-fragment.link-list .content-list-name, .content-fragment.with-header .content-fragment-header div {
+	color:#333333;
+	font-size:1em
+}
+.left-sidebar .content-fragment {
+	margin-left:6px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud li.level-6 a {
+	color: #009933;
+	font-weight:200
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud li.level-5 a {
+	color: #008822;
+	font-weight:300
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud li.level-4 a {
+	color: #007711;
+	font-weight:500
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud li.level-3 a {
+	color: #005500;
+	font-weight:600
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud li.level-2 a {
+	color: #005500;
+	font-weight:800
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud li.level-1 a {
+	color: #004400;
+	font-weight:900;
+	font-size:15px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud .tag-list {
+	padding-top:0;
+	padding-left:10px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .tag-cloud .tag-list li {
+	line-height:22px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .content-fragment.no-wrapper-with-spacing .content-fragment-content {
+	padding-right:6px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .content-fragment {
+	margin-left:4px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .content-list .content-item {
+	padding-bottom:0
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.right-sidebar .content-fragment.blog-post-list .content-list.simple .abbreviated-post {
+	padding-top:0;
+	padding-bottom:0
+}
+.layout-region.right-sidebar ul.content-list li.content-item:first-child, .layout-region.right-sidebar ul.navigation-list li.navigation-item:first-child {
+	padding-top:0
+}
+.footer-fragments-header, .footer-fragments-footer {
+	border-top:0
+}
+.content-fragment.blog-feedback-list .content-item.user-is-author {
+	border:1px solid #666;
+	background-color:#e0e0e0;
+	margin-bottom:1em;
+	padding:0.75em
+}
+.content-fragment.blog-feedback-list .content-item {
+	background:none repeat scroll 0 0 #FFF;
+	margin-bottom:1em;
+	padding:1.25em 0.75em 1em
+}
+.content-fragment.blog-feedback-list .content-list {
+	margin-top:20px
+}
+.content-fragment.blog-post-comment-form .field-list-description, .content-fragment.blog-feedback-list .content-list-name .internal-link.rss {
+	color:#333;
+	font-size:14px;
+	text-transform:none
+}
+.layout-content.content-left-sidebar-right .layout-region.content fieldset.field-list, .content-fragment.blog-feedback-list .content-list-name {
+	margin-left:2px
+}
+.content-fragment.blog-feedback-list .content-list {
+	padding-left:2px
+}
+.content-fragment.blog-feedback-list .full-post .post-author .avatar {
+	top:2px
+}
+.content-fragment.blog-post-comment-form .internal-link.add-reply {
+	margin-left:9px
+}
+.content-fragment.blog-feedback-list .full-post .post-content {
+	border-color:#eee
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.content .tag-cloud .tag-list {
+	background-color:#F7F7F7;
+	padding:6px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.content .field-item-header {
+	font-weight:normal
+}
+/*Fixes display of button under email form*/
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .content-fragment.contact-blog .internal-link.send-email span {
+	left:-9px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .field-item {
+	min-height:19px
+}
+.layout-content.header-top-sidebar-left-content-center-sidebar-right .layout-region.content .content-fragment.with-header .content-fragment-header div {
+	font-size:1.1em
+}
+.field-item.post-body .field-item-input textarea {
+	width:100%
+}
+.captcha-blog-post-comment-form img {
+	display:block;
+	margin-bottom:8px;
+}
+.captcha-blog-post-comment-form label {
+	margin-right:5px
+}
+.content-fragment.link-list .content-list {
+	line-height:14px
+}
+.content-fragment.link-list h3.post-name {
+	padding:0;
+	margin:0
+}
+.content-fragment.link-list div.full-post-footer, .content-fragment.link-list .full-post .post-content {
+	display:none
+}
+.footer-fragments {
+	padding:10px 0 0; background:#fff
+}
+.footer-fragments-header, .footer-fragments-footer {
+	display:none
+}
+.copyright-info {
+	padding-left:0;
+	margin:auto 22px;
+	background-position: right -6px	
+}
+/* RSS icon */
+.content-fragment.blog-feedback-list .content-list-name .internal-link.rss span {
+left:87px;
+}
+
+/* Fix IE7 spacing within comments */
+.full-post .post-content p {margin-top:12px}
+
+/* Hide empty element between comment box and post button */
+.content-fragment-page.post .layout-region.content ul.field-list li:first-child + li {display:none}
+.content-fragment.captcha-blog-post-comment-form .field-item {
+padding-bottom:4px;
+}

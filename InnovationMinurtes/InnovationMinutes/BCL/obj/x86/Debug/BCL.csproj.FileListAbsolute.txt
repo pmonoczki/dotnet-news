@@ -1,0 +1,23 @@
+I:\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.exe
+I:\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.pdb
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.exe
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.pdb
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\Decl\BCL.exe
+I:\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\Decl\BCL.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\Decl\BCL.exe
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\Decl\BCL.pdb
+c:\Users\Monoczki Pal\Desktop\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\input.txt
+G:\Finito\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\input.txt
+G:\Finito\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.exe
+G:\Finito\InnovationMinurtes\InnovationMinutes\BCL\bin\Debug\BCL.pdb
+G:\Finito\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\ResolveAssemblyReference.cache
+I:\Finito\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.exe
+I:\Finito\InnovationMinurtes\InnovationMinutes\BCL\obj\x86\Debug\BCL.pdb
